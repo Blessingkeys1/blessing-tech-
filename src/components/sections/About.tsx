@@ -87,8 +87,31 @@ export const About: React.FC<AboutProps> = ({ onOpenCv }) => {
             </div>
           </div>
 
-          {/* Right Column: Breakdown Cards */}
+          {/* Right Column: Portrait & Breakdown Cards */}
           <div className="lg:col-span-5 space-y-4">
+            {/* Professional Portrait Card */}
+            <div className="relative rounded-3xl overflow-hidden bg-[#0b0f19] light:bg-white border border-slate-800 light:border-slate-200 shadow-xl group">
+              <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+                <img
+                  src="/images/blessing-about.jpg"
+                  alt="Mwanje Blessing"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent opacity-90" />
+                <div className="absolute bottom-4 left-5 right-5">
+                  <span className="text-xs font-bold text-blue-400 font-mono tracking-wider uppercase block">
+                    {profileData.brand}
+                  </span>
+                  <h4 className="text-lg font-bold text-white tracking-tight">
+                    {profileData.name}
+                  </h4>
+                  <p className="text-xs text-slate-300 italic">
+                    "{profileData.slogan}"
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Education Card */}
             <div className="p-6 rounded-2xl bg-[#0b0f19] light:bg-white border border-slate-800 light:border-slate-200 shadow-md">
               <div className="flex items-center gap-3 mb-3">

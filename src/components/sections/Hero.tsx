@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { profileData } from '../../data/portfolioData';
 import {
   ArrowRight,
@@ -16,6 +16,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
+  const [currentPhoto, setCurrentPhoto] = useState<string>('/images/blessing-avatar.jpg');
+
   return (
     <section
       id="home"
@@ -108,19 +110,53 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl blur-xl opacity-40 group-hover:opacity-60 transition duration-500" />
 
             {/* Card Container */}
-            <div className="relative w-full max-w-md bg-[#0b0f19] light:bg-white rounded-3xl border border-slate-800 light:border-slate-200 shadow-2xl p-6 sm:p-7 space-y-6 overflow-hidden">
+            <div className="relative w-full max-w-md bg-[#0b0f19] light:bg-white rounded-3xl border border-slate-800 light:border-slate-200 shadow-2xl p-6 sm:p-7 space-y-5 overflow-hidden">
               {/* Profile Image & Status */}
               <div className="relative flex flex-col items-center text-center">
-                <div className="relative w-44 h-44 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 shadow-xl shadow-blue-500/20">
+                <div className="relative w-48 h-56 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 shadow-xl shadow-blue-500/20 group">
                   <img
-                    src="/images/blessing-avatar.jpg"
+                    src={currentPhoto}
                     alt="Mwanje Blessing"
-                    className="w-full h-full object-cover object-top rounded-[14px]"
+                    className="w-full h-full object-cover object-top rounded-[14px] transition-all duration-300"
                   />
-                  <div className="absolute bottom-2 right-2 p-1.5 rounded-full bg-emerald-500 border-2 border-[#0b0f19]" title="Available for hire" />
+                  <div className="absolute bottom-3 right-3 p-1.5 rounded-full bg-emerald-500 border-2 border-[#0b0f19]" title="Available for hire" />
                 </div>
 
-                <div className="mt-4">
+                {/* Photo Selector Pills */}
+                <div className="flex items-center gap-1.5 mt-3 bg-slate-900/90 light:bg-slate-100 p-1 rounded-xl border border-slate-800 light:border-slate-200 text-[10px]">
+                  <button
+                    onClick={() => setCurrentPhoto('/images/blessing-avatar.jpg')}
+                    className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
+                      currentPhoto === '/images/blessing-avatar.jpg'
+                        ? 'bg-blue-600 text-white shadow-sm'
+                        : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    Dev Look
+                  </button>
+                  <button
+                    onClick={() => setCurrentPhoto('/images/blessing-about.jpg')}
+                    className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
+                      currentPhoto === '/images/blessing-about.jpg'
+                        ? 'bg-blue-600 text-white shadow-sm'
+                        : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    Executive
+                  </button>
+                  <button
+                    onClick={() => setCurrentPhoto('/images/blessing-shades.jpg')}
+                    className={`px-2.5 py-1 rounded-lg font-medium transition-colors ${
+                      currentPhoto === '/images/blessing-shades.jpg'
+                        ? 'bg-blue-600 text-white shadow-sm'
+                        : 'text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    Studio
+                  </button>
+                </div>
+
+                <div className="mt-3">
                   <h3 className="text-xl font-bold text-white light:text-slate-900 tracking-tight">
                     {profileData.name}
                   </h3>
