@@ -99,7 +99,7 @@ All personal details, links, media, and copy can be updated without altering com
    git add .
    git commit -m "feat: complete Mwanje Blessing portfolio website"
    git branch -M main
-   git remote add origin https://github.com/mwanjeblessing/portfolio.git
+   git remote add origin https://github.com/Blessingkeys1/blessing-tech-.git
    git push -u origin main
    ```
 2. Go to [vercel.com](https://vercel.com) and click **"New Project"**.

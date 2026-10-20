@@ -261,7 +261,7 @@ export const projectsData: Project[] = [
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Lucide Icons'],
     image: '/images/blessing-tech.jpg',
-    githubUrl: 'https://github.com/Blessingkeys1/portfolio-blessing-technologies',
+    githubUrl: 'https://github.com/Blessingkeys1/blessing-tech-',
     demoUrl: '#home',
   },
   {
