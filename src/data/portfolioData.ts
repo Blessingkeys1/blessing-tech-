@@ -262,7 +262,7 @@ export const projectsData: Project[] = [
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Lucide Icons'],
     image: '/images/blessing-tech.jpg',
     githubUrl: 'https://github.com/Blessingkeys1/blessing-tech-',
-    demoUrl: '#home',
+    demoUrl: 'https://mwanje-blessing.netlify.app',
   },
   {
     id: 'church-media-production',
