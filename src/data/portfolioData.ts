@@ -287,6 +287,52 @@ export const projectsData: Project[] = [
     githubUrl: null,
     demoUrl: '#creative-media',
   },
+  {
+    id: 'cavi-technical-college',
+    title: 'CAVI Technical College Portal',
+    tagline: 'TVET Accredited Technical College Web Platform in Mukono, Uganda',
+    category: 'Web Development',
+    status: 'Completed',
+    isFeatured: true,
+    problem:
+      'Prospective technical students and vocational trainees in Uganda required a clear, mobile-friendly institutional portal to discover accredited TVET courses (National Certificates & Junior Polytechnic), check academic intake schedules, and initiate admissions.',
+    solution:
+      'Engineered a responsive collegiate web portal for CAVI (UVT505 MoES accredited). Features detailed course breakdowns for Plumbing, Electrical, Fashion, Catering, IT, and Automotive trades, direct hotline links, and academic calendar notices.',
+    features: [
+      'Responsive collegiate layout with mobile-first navigation and top utility notices',
+      'UVT505 MoES TVET accreditation showcase and course certification catalogs',
+      'Academic intake announcements and direct admissions hotline dispatchers',
+      'Campus location directions (Joggo, Mukono) and department inquiry channels',
+      'Optimized loading performance and accessible semantic markup',
+    ],
+    technologies: ['HTML5 / CSS3', 'JavaScript', 'Responsive Web Design', 'SEO & Performance', 'FontAwesome'],
+    image: '/images/cavi-edu.jpg',
+    demoUrl: 'https://www.cavi.edu.ug/',
+    githubUrl: null,
+  },
+  {
+    id: 'wellspring-limited-uganda',
+    title: 'Wellspring Limited Official Platform',
+    tagline: 'Community-Driven NGO & Institutional Impact Platform in Uganda',
+    category: 'Web Development',
+    status: 'Completed',
+    isFeatured: true,
+    problem:
+      'A multi-faceted community development organization operating across Uganda and Tanzania needed a cohesive web destination to present their education, healthcare, church, and hospital ministries with transparent accountability.',
+    solution:
+      'Developed an editorial web platform featuring multi-tiered program navigation, reading progress tracking, community impact stories, regional location overviews (Tororo & Tanzania), and donation pathways.',
+    features: [
+      'Dynamic program showcases covering church ministries, primary schools, and healthcare',
+      'Interactive mega-menu navigation categorized by Identity, Locations, and Accountability',
+      'Community transformation story archive with dynamic reading progress indicators',
+      'Annual reporting portal and digital donor engagement pathways',
+      'Cross-regional presence coordination for Uganda and Tanzania initiatives',
+    ],
+    technologies: ['HTML5 / CSS3', 'JavaScript', 'Editorial UI Design', 'Custom CSS Architecture'],
+    image: '/images/wellspring-org.jpg',
+    demoUrl: 'http://wellspring.or.ug/',
+    githubUrl: null,
+  },
 ];
 
 /**
