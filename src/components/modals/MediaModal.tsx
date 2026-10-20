@@ -105,7 +105,7 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
               onClose();
               onSelectHire(item.title);
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white transition-all shadow-md"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md"
           >
             <ExternalLink className="w-4 h-4" />
             Book Similar Creative Service

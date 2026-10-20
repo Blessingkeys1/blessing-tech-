@@ -135,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             {/* Hire Me CTA */}
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 hover:shadow-blue-600/50 transition-all duration-200"
             >
               <span>Hire Me</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -203,7 +203,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-colors"
             >
               <span>Get in Touch / Hire Me</span>
               <ArrowRight className="w-4 h-4" />

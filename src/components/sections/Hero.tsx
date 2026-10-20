@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Download,
   Terminal,
-  Sparkles,
   MapPin,
   Code2,
   Database,
@@ -69,10 +68,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 shadow-lg shadow-purple-600/20 hover:shadow-purple-600/40 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200"
               >
                 <span>Hire Me</span>
-                <Sparkles className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" />
               </a>
 
               <button
