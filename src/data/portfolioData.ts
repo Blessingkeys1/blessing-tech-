@@ -53,16 +53,16 @@ export const profileData: ProfileInfo = {
     ],
   },
   contact: {
-    email: 'blessingmwanje@gmail.com', // Replace with your primary email address
-    phone: '+256 750 000 000', // Replace with your active telephone number
-    whatsappNumber: '256750000000', // Country code without '+' followed by number
+    email: 'blessingstechnologies4@gmail.com',
+    phone: '+256 750 000 000',
+    whatsappNumber: '256750000000',
     whatsappMessage:
       'Hello Mwanje Blessing, I came across your portfolio website and would like to discuss a project or collaboration opportunity.',
     location: 'Kampala, Uganda (East Africa Time - UTC+3)',
-    github: 'https://github.com/mwanjeblessing', // Replace with your active GitHub profile
-    linkedin: 'https://linkedin.com/in/mwanje-blessing', // Replace with your LinkedIn URL
-    upwork: 'https://www.upwork.com/freelancers/~mwanjeblessing', // Replace with your Upwork profile URL
-    youtube: 'https://youtube.com/@blessingtechnologies', // Replace with your YouTube or streaming channel
+    github: 'https://github.com/Blessingkeys1',
+    linkedin: 'https://www.linkedin.com/in/blessing-tech-423194371',
+    upwork: 'https://www.upwork.com/freelancers/~011cd3ec4ee9b8196f?mp_source=share',
+    youtube: 'https://youtube.com/@blessingtechnologies',
   },
   stats: [
     {
@@ -261,7 +261,7 @@ export const projectsData: Project[] = [
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Lucide Icons'],
     image: '/images/blessing-tech.jpg',
-    githubUrl: 'https://github.com/mwanjeblessing/portfolio-blessing-technologies',
+    githubUrl: 'https://github.com/Blessingkeys1/portfolio-blessing-technologies',
     demoUrl: '#home',
   },
   {
