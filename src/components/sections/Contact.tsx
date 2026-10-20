@@ -1,0 +1,382 @@
+import React, { useState } from 'react';
+import { profileData } from '../../data/portfolioData';
+import {
+  Mail,
+  MapPin,
+  Send,
+  MessageSquare,
+  ExternalLink,
+  CheckCircle2,
+  AlertCircle,
+} from 'lucide-react';
+import { GithubIcon, LinkedinIcon, YoutubeIcon } from '../icons/BrandIcons';
+
+interface ContactProps {
+  initialSubject?: string;
+}
+
+export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    service: 'Full-Stack Web Development',
+    subject: initialSubject,
+    message: '',
+  });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submittedStatus, setSubmittedStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [successInfo, setSuccessInfo] = useState('');
+
+  const services = [
+    'Full-Stack Web Development',
+    'Backend API & Database Design',
+    'Offline Desktop Software Architecture',
+    'Church Media & Livestream Production',
+    'Video Editing & Post-Production',
+    'Graphic Design & Event Posters',
+    'Administrative / Virtual Assistance',
+    'General Inquiry & Collaboration',
+  ];
+
+  const validate = () => {
+    const errs: Record<string, string> = {};
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      errs.name = 'Please provide your name (at least 2 characters).';
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim() || !emailRegex.test(formData.email.trim())) {
+      errs.email = 'Please provide a valid email address.';
+    }
+    if (!formData.subject.trim() || formData.subject.trim().length < 3) {
+      errs.subject = 'Please provide a subject line.';
+    }
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      errs.message = 'Please write a message with at least 10 characters.';
+    }
+    return errs;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      setSubmittedStatus('error');
+      return;
+    }
+
+    setErrors({});
+    
+    // Construct pre-filled mailto to safely process the transmission without a fake backend
+    const recipient = profileData.contact.email;
+    const emailSubject = encodeURIComponent(`[${formData.service}] ${formData.subject}`);
+    const emailBody = encodeURIComponent(
+      `From: ${formData.name}\nEmail: ${formData.email}\nService Interested: ${formData.service}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoUrl = `mailto:${recipient}?subject=${emailSubject}&body=${emailBody}`;
+
+    // Trigger email client
+    window.location.href = mailtoUrl;
+
+    setSubmittedStatus('success');
+    setSuccessInfo(
+      'Your default email client has been opened with your pre-filled inquiry. You can also message Mwanje directly on WhatsApp for an immediate response!'
+    );
+  };
+
+  const handleWhatsAppDirect = () => {
+    const text = encodeURIComponent(
+      `Hello Mwanje Blessing! My name is ${formData.name || 'a visitor'}. I am inquiring regarding ${
+        formData.service
+      }: ${formData.message || 'I would like to discuss a project with you.'}`
+    );
+    window.open(`https://wa.me/${profileData.contact.whatsappNumber}?text=${text}`, '_blank');
+  };
+
+  return (
+    <section id="contact" className="py-24 relative bg-[#090d16] light:bg-slate-100/60">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+            Initiate Contact
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
+            Let's Build Something Great Together
+          </h2>
+          <p className="text-sm sm:text-base text-slate-400 light:text-slate-600">
+            Whether you have a remote job opening, freelance software project, church media requirement, or technical question, feel free to reach out.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          {/* Left Column: Direct Gateways & Socials */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-7 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-xl space-y-6">
+              <div>
+                <h3 className="text-lg font-bold text-white light:text-slate-900">
+                  Direct Communication Channels
+                </h3>
+                <p className="text-xs text-slate-400 light:text-slate-600 mt-1">
+                  Prompt replies typically within 24 hours.
+                </p>
+              </div>
+
+              {/* Contact Channels List */}
+              <div className="space-y-4">
+                {/* Email */}
+                <a
+                  href={`mailto:${profileData.contact.email}`}
+                  className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-900/70 light:bg-slate-50 border border-slate-800/80 light:border-slate-200 hover:border-blue-500/40 transition-colors group"
+                >
+                  <div className="p-2.5 rounded-xl bg-blue-600/10 text-blue-400 border border-blue-500/20 group-hover:scale-105 transition-transform">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 light:text-slate-500">
+                      Email Address
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-white light:text-slate-800 group-hover:text-blue-400 transition-colors break-all">
+                      {profileData.contact.email}
+                    </div>
+                  </div>
+                </a>
+
+                {/* WhatsApp */}
+                <button
+                  type="button"
+                  onClick={handleWhatsAppDirect}
+                  className="w-full flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-900/70 light:bg-slate-50 border border-slate-800/80 light:border-slate-200 hover:border-emerald-500/40 transition-colors group text-left"
+                >
+                  <div className="p-2.5 rounded-xl bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 group-hover:scale-105 transition-transform">
+                    <MessageSquare className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 light:text-slate-500">
+                      WhatsApp Quick Chat
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-white light:text-slate-800 group-hover:text-emerald-400 transition-colors">
+                      {profileData.contact.phone}
+                    </div>
+                    <div className="text-[10px] text-emerald-400">
+                      Click to start immediate conversation
+                    </div>
+                  </div>
+                </button>
+
+                {/* Location */}
+                <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-900/70 light:bg-slate-50 border border-slate-800/80 light:border-slate-200">
+                  <div className="p-2.5 rounded-xl bg-purple-600/10 text-purple-400 border border-purple-500/20">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold text-slate-400 light:text-slate-500">
+                      Location & Timezone
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-white light:text-slate-800">
+                      {profileData.location}
+                    </div>
+                    <div className="text-[10px] text-slate-400">
+                      East Africa Time (UTC+3) • Open to Global Teams
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Profiles Grid */}
+              <div className="pt-4 border-t border-slate-800/80 light:border-slate-200">
+                <div className="text-xs font-bold text-white light:text-slate-900 uppercase tracking-wider mb-3">
+                  Professional Profiles & Portals
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <a
+                    href={profileData.contact.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                    <span>GitHub</span>
+                  </a>
+
+                  <a
+                    href={profileData.contact.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                  >
+                    <LinkedinIcon className="w-4 h-4 text-blue-400" />
+                    <span>LinkedIn</span>
+                  </a>
+
+                  <a
+                    href={profileData.contact.upwork}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4 text-emerald-400" />
+                    <span>Upwork</span>
+                  </a>
+
+                  <a
+                    href={profileData.contact.youtube}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                  >
+                    <YoutubeIcon className="w-4 h-4 text-rose-500" />
+                    <span>YouTube</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Verified Contact Form */}
+          <div className="lg:col-span-7">
+            <div className="p-7 sm:p-8 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-xl">
+              <h3 className="text-xl font-bold text-white light:text-slate-900 mb-1">
+                Send a Message or Project Brief
+              </h3>
+              <p className="text-xs text-slate-400 light:text-slate-600 mb-6">
+                Fill out the form below. Your message will be formatted and securely transmitted.
+              </p>
+
+              {/* Status Banner */}
+              {submittedStatus === 'success' && (
+                <div className="mb-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block font-semibold">Message Ready to Dispatch!</strong>
+                    <span>{successInfo}</span>
+                  </div>
+                </div>
+              )}
+
+              {submittedStatus === 'error' && Object.keys(errors).length > 0 && (
+                <div className="mb-6 p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs flex items-start gap-2.5">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="block font-semibold">Please check the required fields below.</strong>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Name */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
+                      Your Name <span className="text-rose-400">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. John Okello"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
+                        errors.name ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
+                      } focus:outline-none focus:border-blue-500 transition-colors`}
+                    />
+                    {errors.name && <p className="text-[11px] text-rose-400">{errors.name}</p>}
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
+                      Your Email Address <span className="text-rose-400">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="e.g. john@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
+                        errors.email ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
+                      } focus:outline-none focus:border-blue-500 transition-colors`}
+                    />
+                    {errors.email && <p className="text-[11px] text-rose-400">{errors.email}</p>}
+                  </div>
+                </div>
+
+                {/* Service Selection */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
+                    Service or Project Category
+                  </label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border border-slate-800 light:border-slate-300 focus:outline-none focus:border-blue-500 transition-colors"
+                  >
+                    {services.map((srv, idx) => (
+                      <option key={idx} value={srv} className="bg-slate-900 text-white">
+                        {srv}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Subject */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
+                    Subject Line <span className="text-rose-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Inquiring about School System / Freelance Web Project"
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
+                      errors.subject ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
+                    } focus:outline-none focus:border-blue-500 transition-colors`}
+                  />
+                  {errors.subject && <p className="text-[11px] text-rose-400">{errors.subject}</p>}
+                </div>
+
+                {/* Message */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
+                    Message Details <span className="text-rose-400">*</span>
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Provide details about your project timeline, requirements, or questions..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
+                      errors.message ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
+                    } focus:outline-none focus:border-blue-500 transition-colors resize-none`}
+                  />
+                  {errors.message && <p className="text-[11px] text-rose-400">{errors.message}</p>}
+                </div>
+
+                {/* Submit Actions */}
+                <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all hover:scale-105"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Send Message (Email Gateway)</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={handleWhatsAppDirect}
+                    className="inline-flex items-center gap-2 px-4 py-3 rounded-xl text-xs sm:text-sm font-semibold text-emerald-400 bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-500/30 transition-all"
+                  >
+                    <MessageSquare className="w-4 h-4" />
+                    <span>Quick WhatsApp Chat</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
