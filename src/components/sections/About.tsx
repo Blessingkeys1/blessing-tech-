@@ -20,7 +20,7 @@ export const About: React.FC<AboutProps> = ({ onOpenCv }) => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-600/10 text-blue-400 border border-blue-500/20 uppercase tracking-wider">
-            About Mwanje Blessing
+            About Blessing Technologies
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
             Bridging Software Systems & Digital Creativity
@@ -94,16 +94,13 @@ export const About: React.FC<AboutProps> = ({ onOpenCv }) => {
               <div className="relative h-64 sm:h-72 w-full overflow-hidden">
                 <img
                   src="/images/blessing-about.jpg"
-                  alt="Mwanje Blessing"
+                  alt="Blessing Technologies"
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent opacity-90" />
                 <div className="absolute bottom-4 left-5 right-5">
-                  <span className="text-xs font-bold text-blue-400 font-mono tracking-wider uppercase block">
-                    {profileData.brand}
-                  </span>
                   <h4 className="text-lg font-bold text-white tracking-tight">
-                    {profileData.name}
+                    {profileData.brand}
                   </h4>
                   <p className="text-xs text-slate-300 italic">
                     "{profileData.slogan}"

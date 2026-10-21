@@ -24,14 +24,14 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-blue-500/20">
-                MB
+                BT
               </div>
               <div>
                 <span className="font-extrabold text-lg text-white tracking-tight">
-                  {profileData.name}
+                  {profileData.brand}
                 </span>
                 <span className="block text-xs text-blue-400 font-mono">
-                  {profileData.brand}
+                  Software & Creative Tech
                 </span>
               </div>
             </div>
@@ -139,7 +139,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href={`mailto:${profileData.contact.email}`}
-                aria-label="Email Mwanje Blessing"
+                aria-label="Email Blessing Technologies"
                 className="p-2 rounded-lg bg-slate-900 border border-slate-800 text-blue-400 hover:text-blue-300 hover:border-blue-500 transition-all hover:scale-105"
               >
                 <Mail className="w-4 h-4" />
@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} {profileData.name} • {profileData.brand}. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {profileData.brand}. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span>Building Tech. Building Legacy.</span>
             <button

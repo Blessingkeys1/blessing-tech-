@@ -11,7 +11,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const handlePrint = () => {
-    window.open('/mwanje-blessing-cv.html', '_blank')?.print();
+    window.open('/blessing-technologies-cv.html', '_blank')?.print();
   };
 
   return (
@@ -25,14 +25,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
             <h2 className="text-sm sm:text-base font-bold text-white">
-              Curriculum Vitae — Mwanje Blessing
+              Curriculum Vitae — Blessing Technologies
             </h2>
           </div>
 
           <div className="flex items-center gap-2">
             <a
-              href="/mwanje-blessing-cv.html"
-              download="Mwanje_Blessing_CV.html"
+              href="/blessing-technologies-cv.html"
+              download="Blessing_Technologies_CV.html"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
@@ -48,7 +48,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             </button>
 
             <a
-              href="/mwanje-blessing-cv.html"
+              href="/blessing-technologies-cv.html"
               target="_blank"
               rel="noreferrer"
               className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
@@ -74,7 +74,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <h1 className="text-3xl font-extrabold tracking-tight text-white">
-                  MWANJE BLESSING
+                  BLESSING TECHNOLOGIES
                 </h1>
                 <p className="text-blue-400 font-medium text-sm sm:text-base mt-1">
                   Software Engineer | Full-Stack Web Developer | Creative Digital Professional
@@ -85,7 +85,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               </div>
               <img
                 src="/images/blessing-avatar.jpg"
-                alt="Mwanje Blessing"
+                alt="Blessing Technologies"
                 className="w-20 h-20 rounded-2xl object-cover border-2 border-blue-500/50 shadow-lg"
               />
             </div>

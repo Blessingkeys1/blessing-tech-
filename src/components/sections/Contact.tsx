@@ -81,13 +81,13 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
 
     setSubmittedStatus('success');
     setSuccessInfo(
-      'Your default email client has been opened with your pre-filled inquiry. You can also message Mwanje directly on WhatsApp for an immediate response!'
+      'Your default email client has been opened with your pre-filled inquiry. You can also message Blessing Technologies directly on WhatsApp for an immediate response!'
     );
   };
 
   const handleWhatsAppDirect = () => {
     const text = encodeURIComponent(
-      `Hello Mwanje Blessing! My name is ${formData.name || 'a visitor'}. I am inquiring regarding ${
+      `Hello Blessing Technologies! My name is ${formData.name || 'a visitor'}. I am inquiring regarding ${
         formData.service
       }: ${formData.message || 'I would like to discuss a project with you.'}`
     );

@@ -15,7 +15,7 @@ import type {
  * =========================================================================
  */
 export const profileData: ProfileInfo = {
-  name: 'Mwanje Blessing',
+  name: 'Blessing Technologies',
   title: 'Software Engineer | Full-Stack Web Developer | Creative Digital Professional',
   brand: 'Blessing Technologies',
   slogan: 'Building Tech. Building Legacy.',
@@ -23,7 +23,7 @@ export const profileData: ProfileInfo = {
   availability: 'Available for Freelance & Remote Opportunities Worldwide',
   objective:
     'To build useful digital solutions, create engaging visual content, solve problems through technology, and collaborate with clients and teams around the world.',
-  headline: "Hi, I'm Mwanje Blessing.",
+  headline: "Welcome to Blessing Technologies.",
   subheadline:
     'I Build Digital Experiences, Develop Powerful Systems, and Create Engaging Content.',
   supportingText:
@@ -57,7 +57,7 @@ export const profileData: ProfileInfo = {
     phone: '+256 750 000 000',
     whatsappNumber: '256750000000',
     whatsappMessage:
-      'Hello Mwanje Blessing, I came across your portfolio website and would like to discuss a project or collaboration opportunity.',
+      'Hello Blessing Technologies, I came across your portfolio website and would like to discuss a project or collaboration opportunity.',
     location: 'Kampala, Uganda (East Africa Time - UTC+3)',
     github: 'https://github.com/Blessingkeys1',
     linkedin: 'https://www.linkedin.com/in/blessing-tech-423194371',
@@ -262,7 +262,7 @@ export const projectsData: Project[] = [
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Lucide Icons'],
     image: '/images/blessing-tech.jpg',
     githubUrl: 'https://github.com/Blessingkeys1/blessing-tech-',
-    demoUrl: 'https://mwanje-blessing.netlify.app',
+    demoUrl: 'https://blessing-technologies.netlify.app',
   },
   {
     id: 'church-media-production',
@@ -545,7 +545,7 @@ export const testimonialsData: TestimonialItem[] = [
     organization: 'Software Engineering Faculty',
     relationship: 'Academic Supervision',
     quote:
-      'Mwanje demonstrates a remarkable passion for backend architecture and systems programming. His focus on understanding how databases handle real-world transactions sets him apart as an aspiring engineer with immense promise.',
+      'Blessing Technologies demonstrates a remarkable passion for backend architecture and systems programming. The focus on understanding how databases handle real-world transactions sets this work apart with immense promise.',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
     isPlaceholder: true,
   },
@@ -567,7 +567,7 @@ export const testimonialsData: TestimonialItem[] = [
     organization: 'Digital Solutions Studio',
     relationship: 'Collaborative Project Partner',
     quote:
-      'Working with Mwanje Blessing is always a smooth experience. He delivers on time, communicates proactively, and takes genuine ownership over code quality and digital presentation.',
+      'Working with Blessing Technologies is always a smooth experience. Delivery is on time, communication is proactive, and genuine ownership is taken over code quality and digital presentation.',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
     isPlaceholder: true,
   },

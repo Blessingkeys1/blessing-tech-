@@ -40,11 +40,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
             {/* Headline */}
             <div className="space-y-2">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white light:text-slate-900 leading-[1.1]">
-                Hi, I'm{' '}
+                Welcome to{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
-                  {profileData.name}
+                  {profileData.brand}
                 </span>
-                .
               </h1>
               <p className="text-lg sm:text-xl font-semibold text-slate-200 light:text-slate-800 leading-snug">
                 {profileData.subheadline}
@@ -115,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
                 <div className="relative w-48 h-56 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-blue-500 via-indigo-500 to-purple-500 shadow-xl shadow-blue-500/20 group">
                   <img
                     src={currentPhoto}
-                    alt="Mwanje Blessing"
+                    alt="Blessing Technologies"
                     className="w-full h-full object-cover object-top rounded-[14px] transition-all duration-300"
                   />
                   <div className="absolute bottom-3 right-3 p-1.5 rounded-full bg-emerald-500 border-2 border-[#0b0f19]" title="Available for hire" />
@@ -157,10 +156,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
                 <div className="mt-3">
                   <h3 className="text-xl font-bold text-white light:text-slate-900 tracking-tight">
-                    {profileData.name}
+                    {profileData.brand}
                   </h3>
                   <p className="text-xs font-semibold text-blue-400 uppercase tracking-wider mt-0.5">
-                    {profileData.brand}
+                    Software & Creative Tech
                   </p>
                   <p className="text-xs text-slate-400 light:text-slate-600 mt-1 flex items-center justify-center gap-1">
                     <MapPin className="w-3.5 h-3.5 text-blue-400" />

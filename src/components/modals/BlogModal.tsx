@@ -65,7 +65,7 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
               <Calendar className="w-3.5 h-3.5" />
               <span>Published on {post.publishDate}</span>
               <span>•</span>
-              <span className="text-blue-400 font-medium">By Mwanje Blessing</span>
+              <span className="text-blue-400 font-medium">By Blessing Technologies</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
               {post.title}
@@ -120,11 +120,11 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
           <div className="flex items-center gap-3">
             <img
               src="/images/blessing-avatar.jpg"
-              alt="Mwanje Blessing"
+              alt="Blessing Technologies"
               className="w-9 h-9 rounded-full object-cover border border-blue-500/40"
             />
             <div>
-              <div className="text-xs font-semibold text-white">Mwanje Blessing</div>
+              <div className="text-xs font-semibold text-white">Blessing Technologies</div>
               <div className="text-[11px] text-slate-400">Software Engineer & Creator</div>
             </div>
           </div>

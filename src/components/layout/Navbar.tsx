@@ -74,16 +74,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-[1.5px] shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
               <div className="w-full h-full bg-[#07090e] light:bg-white rounded-[10px] flex items-center justify-center">
                 <span className="font-extrabold text-base bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  MB
+                  BT
                 </span>
               </div>
             </div>
             <div className="flex flex-col">
               <span className="font-bold text-sm tracking-tight text-white light:text-slate-900 group-hover:text-blue-400 transition-colors">
-                {profileData.name}
-              </span>
-              <span className="text-[10px] text-slate-400 light:text-slate-500 font-mono tracking-wider uppercase">
                 {profileData.brand}
+              </span>
+              <span className="text-[10px] text-blue-400 light:text-blue-600 font-mono tracking-wider uppercase">
+                Software & Creative Tech
               </span>
             </div>
           </a>

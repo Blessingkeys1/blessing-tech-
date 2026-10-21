@@ -1,4 +1,4 @@
-# Mwanje Blessing — Professional Portfolio Website
+# Blessing Technologies — Professional Portfolio Website
 ### Brand: **Blessing Technologies** | Slogan: *"Building Tech. Building Legacy."*
 
 A modern, responsive, high-performance personal portfolio website built with **React**, **TypeScript**, **Tailwind CSS**, and **Vite**. Showcases full-stack web engineering, backend architecture, offline software systems, church media production, and digital support services.
@@ -97,7 +97,7 @@ All personal details, links, media, and copy can be updated without altering com
    ```bash
    git init
    git add .
-   git commit -m "feat: complete Mwanje Blessing portfolio website"
+   git commit -m "feat: complete Blessing Technologies portfolio website"
    git branch -M main
    git remote add origin https://github.com/Blessingkeys1/blessing-tech-.git
    git push -u origin main
@@ -126,11 +126,11 @@ All personal details, links, media, and copy can be updated without altering com
 ## 📁 Project Architecture
 
 ```
-MWANJE BLESSING PROFILE/
+BLESSING TECHNOLOGIES/
 ├── public/
-│   ├── favicon.svg             # Custom tech SVG brand favicon
-│   ├── mwanje-blessing-cv.html # Print-ready standalone CV document
-│   └── images/                 # Optimized project & profile photography
+│   ├── favicon.svg                   # Custom tech SVG brand favicon
+│   ├── blessing-technologies-cv.html # Print-ready standalone CV document
+│   └── images/                       # Optimized project & profile photography
 │       ├── blessing-avatar.jpg
 │       ├── faith-connect.jpg
 │       ├── wellspring-sms.jpg
@@ -167,5 +167,5 @@ MWANJE BLESSING PROFILE/
 
 ## 📄 License & Credits
 
-Created for **Mwanje Blessing** (*Blessing Technologies*).  
+Created for **Blessing Technologies**.  
 *"Building Tech. Building Legacy."*
