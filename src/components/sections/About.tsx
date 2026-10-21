@@ -42,13 +42,13 @@ export const About: React.FC<AboutProps> = ({ onOpenCv }) => {
 
               <div className="space-y-4 text-sm text-slate-300 light:text-slate-600 leading-relaxed">
                 <p>
-                  I am currently pursuing a <strong>Diploma in Software Engineering</strong>. Rather than treating programming merely as abstract theory, I believe in learning by constructing practical software that solves identifiable, real-world problems.
+                  I am a dedicated <strong>Software Engineer</strong>. Rather than treating programming merely as abstract theory, I focus on constructing practical software that solves identifiable, real-world problems.
                 </p>
                 <p>
                   My deepest technical passion lies in <strong>backend development, relational databases, application logic, and APIs</strong>. Whether understanding how MySQL manages concurrent transactions or structuring robust routes in Python, Django, and PHP, I am driven by building systems that run reliably behind the scenes.
                 </p>
                 <p>
-                  Alongside my engineering studies, I operate actively as a <strong>digital creator and media specialist</strong>. For over three years, I have directed live church broadcasts, managed multi-camera livestream productions, edited Christian video content, and designed high-impact event posters. This unique combination gives me both the technical rigor to write clean code and the creative vision to communicate ideas visually.
+                  Alongside my software engineering work, I operate actively as a <strong>digital creator and media specialist</strong>. For over three years, I have directed live church broadcasts, managed multi-camera livestream productions, edited Christian video content, and designed high-impact event posters. This unique combination gives me both the technical rigor to write clean code and the creative vision to communicate ideas visually.
                 </p>
               </div>
 
@@ -117,10 +117,10 @@ export const About: React.FC<AboutProps> = ({ onOpenCv }) => {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white light:text-slate-900">
-                    Software Engineering Studies
+                    Software Engineering
                   </h4>
                   <span className="text-[11px] text-emerald-400 font-semibold">
-                    Current Diploma Candidate
+                    Full-Stack & Systems Focus
                   </span>
                 </div>
               </div>

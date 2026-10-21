@@ -125,14 +125,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             </h3>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 space-y-2">
               <div className="flex flex-wrap items-center justify-between">
-                <h4 className="text-sm font-bold text-white">Diploma in Software Engineering</h4>
+                <h4 className="text-sm font-bold text-white">Software Engineering</h4>
                 <span className="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                  2024 – Present (Ongoing)
+                  2024 – Present
                 </span>
               </div>
               <p className="text-xs text-slate-400">Higher Education Institute • Kampala, Uganda</p>
               <p className="text-xs text-slate-300 pt-1">
-                Pursuing diploma studies emphasizing backend systems, relational database architecture (MySQL, SQLite), algorithms, web development, and practical software engineering.
+                Comprehensive software engineering discipline emphasizing backend systems, relational database architecture (MySQL, SQLite), algorithms, web development, and practical software applications.
               </p>
             </div>
           </div>

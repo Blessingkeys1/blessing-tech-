@@ -27,9 +27,9 @@ export const profileData: ProfileInfo = {
   subheadline:
     'I Build Digital Experiences, Develop Powerful Systems, and Create Engaging Content.',
   supportingText:
-    "I'm a software engineering student and digital creator passionate about backend development, modern web applications, livestreaming, and visual storytelling. I help turn ideas into practical digital solutions.",
+    "I'm a software engineer and digital creator passionate about backend development, modern web applications, livestreaming, and visual storytelling. Dedicated to turning ideas into practical digital solutions.",
   educationSummary:
-    'Currently pursuing a Diploma in Software Engineering, bridging rigorous computer science fundamentals with practical, real-world development.',
+    'Software Engineer with rigorous computer science fundamentals and practical, real-world development experience in backend architectures and modern web applications.',
   interests: {
     technical: [
       'Backend Architecture & Systems',
@@ -345,14 +345,14 @@ export const projectsData: Project[] = [
 export const experienceData: ExperienceItem[] = [
   {
     id: 'edu-software-engineering',
-    period: '2024 – Present (Ongoing)',
-    role: 'Diploma in Software Engineering',
+    period: '2024 – Present',
+    role: 'Software Engineer',
     institution: 'Higher Education Institute',
     location: 'Kampala, Uganda',
     type: 'education',
     current: true,
     description:
-      'Undergoing formal training in software engineering principles, algorithms, relational database administration, object-oriented programming, and web systems development.',
+      'Rigorous background in software engineering principles, algorithms, relational database administration, object-oriented programming, and web systems development.',
     highlights: [
       'Core focus on backend systems, server-side programming, and SQL database design',
       'Practical software laboratory coursework building desktop, mobile, and web solutions',
@@ -504,7 +504,7 @@ export const blogPostsData: BlogPost[] = [
     category: 'Backend Development',
     tags: ['Backend', 'Python', 'Databases', 'API Design'],
     content: [
-      'Beautiful user interfaces attract users, but backend integrity is what keeps applications alive. As a software engineering student diving deep into Python, Django, PHP, and relational databases, the importance of defensive programming has become unmistakable.',
+      'Beautiful user interfaces attract users, but backend integrity is what keeps applications alive. As a software engineer diving deep into Python, Django, PHP, and relational databases, the importance of defensive programming has become unmistakable.',
       'Never Trust the Client: Frontend validation exists for user experience; backend validation exists for survival. Any request received at an API endpoint can be altered, intercepted, or replayed. Validating schemas, sanitize inputs, and enforcing authorization at the controller level is non-negotiable.',
       'The Value of Relational Constraints: Foreign key constraints, CASCADE policies, and unique indexes in MySQL and PostgreSQL are not bureaucratic overhead. They are the mathematical guardrails that prevent corrupted data and ghost references.',
       'Building with Django and Python has reinforced the beauty of clean model definitions and modular services. When the data layer is sound, building features becomes an enjoyable, predictable process.',

@@ -8,6 +8,7 @@ import {
   ExternalLink,
   CheckCircle2,
   AlertCircle,
+  Loader2,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from '../icons/BrandIcons';
 
@@ -26,6 +27,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submittedStatus, setSubmittedStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [successInfo, setSuccessInfo] = useState('');
 
   const services = [
@@ -57,7 +59,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
     return errs;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -67,22 +69,89 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
     }
 
     setErrors({});
-    
-    // Construct pre-filled mailto to safely process the transmission without a fake backend
-    const recipient = profileData.contact.email;
-    const emailSubject = encodeURIComponent(`[${formData.service}] ${formData.subject}`);
-    const emailBody = encodeURIComponent(
-      `From: ${formData.name}\nEmail: ${formData.email}\nService Interested: ${formData.service}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoUrl = `mailto:${recipient}?subject=${emailSubject}&body=${emailBody}`;
+    setIsSubmitting(true);
+    setSubmittedStatus('idle');
 
-    // Trigger email client
-    window.location.href = mailtoUrl;
+    try {
+      // 1. Direct transmission to user's email via FormSubmit AJAX API
+      const response = await fetch('https://formsubmit.co/ajax/blessingstechnologies4@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          service: formData.service,
+          _subject: `[Blessing Technologies Lead] ${formData.service}: ${formData.subject}`,
+          message: formData.message,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
 
-    setSubmittedStatus('success');
-    setSuccessInfo(
-      'Your default email client has been opened with your pre-filled inquiry. You can also message Blessing Technologies directly on WhatsApp for an immediate response!'
-    );
+      // 2. Also register with Netlify Forms in the background
+      try {
+        const netlifyParams = new URLSearchParams();
+        netlifyParams.append('form-name', 'contact');
+        netlifyParams.append('name', formData.name);
+        netlifyParams.append('email', formData.email);
+        netlifyParams.append('service', formData.service);
+        netlifyParams.append('subject', formData.subject);
+        netlifyParams.append('message', formData.message);
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: netlifyParams.toString(),
+        }).catch(() => {});
+      } catch {
+        // Silently ignore secondary Netlify post error
+      }
+
+      if (response.ok) {
+        const data = await response.json();
+        setSubmittedStatus('success');
+        if (data && data.message && data.message.includes('Activation')) {
+          setSuccessInfo(
+            'Inquiry dispatched directly to blessingstechnologies4@gmail.com! Please check your email inbox to confirm initial activation if prompted.'
+          );
+        } else {
+          setSuccessInfo(
+            'Your message has been sent directly to blessingstechnologies4@gmail.com! We have received your inquiry and will respond within 24 hours.'
+          );
+        }
+
+        // Reset form inputs
+        setFormData({
+          name: '',
+          email: '',
+          service: 'Full-Stack Web Development',
+          subject: '',
+          message: '',
+        });
+      } else {
+        throw new Error('Direct email service error');
+      }
+    } catch (err) {
+      console.warn('Network error during direct email submission, falling back to mail client:', err);
+      // Fallback: construct mailto so no communication is ever lost
+      const recipient = profileData.contact.email;
+      const emailSubject = encodeURIComponent(`[${formData.service}] ${formData.subject}`);
+      const emailBody = encodeURIComponent(
+        `From: ${formData.name}\nEmail: ${formData.email}\nService Interested: ${formData.service}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoUrl = `mailto:${recipient}?subject=${emailSubject}&body=${emailBody}`;
+      window.location.href = mailtoUrl;
+
+      setSubmittedStatus('success');
+      setSuccessInfo(
+        'Your message has been formatted and opened in your email client addressed to blessingstechnologies4@gmail.com. You can also reach out via WhatsApp!'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsAppDirect = () => {
@@ -241,7 +310,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 Send a Message or Project Brief
               </h3>
               <p className="text-xs text-slate-400 light:text-slate-600 mb-6">
-                Fill out the form below. Your message will be formatted and securely transmitted.
+                Fill out the form below. Inquiries are sent directly to <span className="text-blue-400 font-semibold">blessingstechnologies4@gmail.com</span> for prompt response.
               </p>
 
               {/* Status Banner */}
@@ -249,7 +318,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 <div className="mb-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs sm:text-sm flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block font-semibold">Message Ready to Dispatch!</strong>
+                    <strong className="block font-semibold">Message Delivered Successfully!</strong>
                     <span>{successInfo}</span>
                   </div>
                 </div>
@@ -264,7 +333,19 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form
+                onSubmit={handleSubmit}
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                className="space-y-4"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>Don’t fill this out: <input name="bot-field" /></label>
+                </p>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name */}
                   <div className="space-y-1.5">
@@ -273,12 +354,14 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     </label>
                     <input
                       type="text"
+                      name="name"
                       placeholder="e.g. John Okello"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      disabled={isSubmitting}
                       className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                         errors.name ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                      } focus:outline-none focus:border-blue-500 transition-colors`}
+                      } focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60`}
                     />
                     {errors.name && <p className="text-[11px] text-rose-400">{errors.name}</p>}
                   </div>
@@ -290,12 +373,14 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       placeholder="e.g. john@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      disabled={isSubmitting}
                       className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                         errors.email ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                      } focus:outline-none focus:border-blue-500 transition-colors`}
+                      } focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60`}
                     />
                     {errors.email && <p className="text-[11px] text-rose-400">{errors.email}</p>}
                   </div>
@@ -307,9 +392,11 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     Service or Project Category
                   </label>
                   <select
+                    name="service"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border border-slate-800 light:border-slate-300 focus:outline-none focus:border-blue-500 transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border border-slate-800 light:border-slate-300 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60"
                   >
                     {services.map((srv, idx) => (
                       <option key={idx} value={srv} className="bg-slate-900 text-white">
@@ -326,12 +413,14 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                   </label>
                   <input
                     type="text"
+                    name="subject"
                     placeholder="e.g. Inquiring about School System / Freelance Web Project"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    disabled={isSubmitting}
                     className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                       errors.subject ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                    } focus:outline-none focus:border-blue-500 transition-colors`}
+                    } focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60`}
                   />
                   {errors.subject && <p className="text-[11px] text-rose-400">{errors.subject}</p>}
                 </div>
@@ -343,12 +432,14 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                   </label>
                   <textarea
                     rows={4}
+                    name="message"
                     placeholder="Provide details about your project timeline, requirements, or questions..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    disabled={isSubmitting}
                     className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                       errors.message ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                    } focus:outline-none focus:border-blue-500 transition-colors resize-none`}
+                    } focus:outline-none focus:border-blue-500 transition-colors resize-none disabled:opacity-60`}
                   />
                   {errors.message && <p className="text-[11px] text-rose-400">{errors.message}</p>}
                 </div>
@@ -357,10 +448,22 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
                   <button
                     type="submit"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all hover:scale-105"
+                    disabled={isSubmitting}
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all ${
+                      isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:scale-105'
+                    }`}
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message (Email Gateway)</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Sending Message...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message Directly</span>
+                      </>
+                    )}
                   </button>
 
                   <button

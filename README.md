@@ -9,17 +9,17 @@ A modern, responsive, high-performance personal portfolio website built with **R
 
 - **Personal Information & Brand Config**: Centrally managed in `src/data/portfolioData.ts`. Update your bio, contacts, projects, skills, and links in one place.
 - **Hero & Landing View**: Interactive hero with electric blue and purple gradients, headline, subheadline, availability indicators, and quick action buttons.
-- **About Section**: Authentic academic journey pursuing a Diploma in Software Engineering, backend focus (Python, Django, PHP, SQL), and creative media capabilities.
+- **About Section**: Authentic engineering journey as a dedicated Software Engineer, backend focus (Python, Django, PHP, SQL), and creative media capabilities.
 - **Skills & Services**: Categorized cards covering Software Development, Creative Services, and Administrative/Remote Support with realistic proficiency levels.
 - **Filterable Projects Portfolio**: Interactive gallery categorizing *Web Development*, *Software Systems*, *Mobile Applications*, and *Creative Media*. Includes:
   - **Faith Connect App** *(Christian Community Mobile Concept)*
   - **Wellspring School Management System** *(Offline Financial & Receipt Management Concept)*
   - **Blessing Technologies Website** *(Completed Brand Platform)*
   - **Church Media & Livestream Production** *(Completed Multi-Camera Broadcast Service)*
-- **Experience & Education Timeline**: Interactive chronological milestones for diploma studies, practical project leadership, and media operations.
+- **Experience & Education Timeline**: Interactive chronological milestones for engineering achievements, practical project leadership, and media operations.
 - **Creative Media Showcase**: Visual gallery for video editing reels, livestreaming setups, promotional posters, and branding graphics with full-resolution lightboxes and video simulation modals.
 - **Technical Blog**: Articles on offline-first software architecture, backend database integrity, and practical church streaming workflows.
-- **Contact & Hire Me Hub**: Form with validation, direct WhatsApp chat integration (`+256...`), and email client dispatching.
+- **Contact & Hire Me Hub**: Form with instant direct email submission (`blessingstechnologies4@gmail.com`), direct WhatsApp chat integration (`+256 709 344 655`), and phone call links.
 - **Interactive CV Viewer & Downloader**: Dedicated in-app CV modal with print and direct HTML/PDF download capabilities.
 - **Theme Toggle**: Seamless switching between dark navy mode (default) and clean modern light mode with saved state in `localStorage`.
 - **Custom 404 Page**: Branded error handler for unmatched URLs.

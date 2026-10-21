@@ -212,8 +212,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
               {/* Status footer inside card */}
               <div className="pt-2 flex items-center justify-between text-xs text-slate-400 light:text-slate-500 border-t border-slate-800/80 light:border-slate-200">
-                <span>Software Engineering Diploma</span>
-                <span className="text-emerald-400 font-medium">In Progress</span>
+                <span>Software Engineer</span>
+                <span className="text-emerald-400 font-medium">Available</span>
               </div>
             </div>
           </div>
