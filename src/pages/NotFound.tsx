@@ -12,7 +12,7 @@ export const NotFound: React.FC = () => {
         </div>
 
         <div className="space-y-2">
-          <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">
+          <h1 className="text-6xl font-extrabold text-[#F97316]">
             404
           </h1>
           <h2 className="text-xl font-bold text-white">System Route Not Found</h2>

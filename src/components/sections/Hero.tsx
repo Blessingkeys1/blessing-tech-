@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white light:text-slate-900 leading-[1.15]">
                 Welcome to{' '}
-                <span className="bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400 bg-clip-text text-transparent">
+                <span className="text-[#F97316]">
                   {profileData.brand}
                 </span>
               </h1>
@@ -226,7 +226,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
               key={idx}
               className="p-5 rounded-2xl bg-slate-900/60 light:bg-slate-100/90 border border-orange-500/15 light:border-slate-200 backdrop-blur-md hover:border-orange-500/40 transition-colors"
             >
-              <div className="text-2xl sm:text-3xl font-extrabold text-white light:text-slate-900 tracking-tight bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#F97316] light:text-orange-600 tracking-tight">
                 {stat.value}
               </div>
               <div className="text-xs font-bold text-slate-300 light:text-slate-800 mt-1">
