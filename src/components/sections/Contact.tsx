@@ -376,6 +376,72 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
             </div>
           </div>
         </div>
+
+        {/* Interactive Location Map Banner */}
+        <div className="mt-12 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-2xl overflow-hidden">
+          <div className="p-5 sm:p-6 border-b border-slate-800 light:border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-900/50 light:bg-slate-50/80">
+            <div className="flex items-center gap-3">
+              <div className="p-3 rounded-2xl bg-blue-600/10 text-blue-400 border border-blue-500/20 shadow-md">
+                <MapPin className="w-5 h-5 text-blue-400" />
+              </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
+                  <span>Operating Base & Regional Presence</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                </h3>
+                <p className="text-xs text-slate-400 light:text-slate-600">
+                  Kampala, Uganda • East Africa Time (UTC+3) — Serving clients locally & across the globe
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+              <a
+                href="https://maps.google.com/?q=Kampala,Uganda"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-slate-200 light:text-slate-800 border border-slate-700 light:border-slate-300 transition-colors"
+              >
+                <span>Open in Google Maps</span>
+                <ExternalLink className="w-3.5 h-3.5 text-blue-400" />
+              </a>
+              <button
+                type="button"
+                onClick={handleWhatsAppDirect}
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors shadow-md shadow-emerald-600/20"
+              >
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span>Quick WhatsApp Chat</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Map Frame */}
+          <div className="relative w-full h-[320px] sm:h-[420px] bg-slate-950">
+            <iframe
+              title="Blessing Technologies Location Map - Kampala, Uganda"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127672.27431114539!2d32.53587428807966!3d0.3130283120155259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb655b3b0d49%3A0x6b804f5e1f0e4912!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1700000000000!5m2!1sen!2sug"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full opacity-90 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+
+          <div className="p-4 sm:px-6 bg-[#080c14] light:bg-slate-50 border-t border-slate-800/80 light:border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 light:text-slate-600">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              <span>Available for on-site media & livestreaming in Kampala/Mukono + global remote software roles</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span>Timezone: <strong>East Africa Time (UTC+3)</strong></span>
+              <span>Direct Phone: <strong className="text-blue-400">{profileData.contact.phone}</strong></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
