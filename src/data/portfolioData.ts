@@ -54,8 +54,8 @@ export const profileData: ProfileInfo = {
   },
   contact: {
     email: 'blessingstechnologies4@gmail.com',
-    phone: '+256 750 000 000',
-    whatsappNumber: '256750000000',
+    phone: '+256 709 344 655',
+    whatsappNumber: '256709344655',
     whatsappMessage:
       'Hello Blessing Technologies, I came across your portfolio website and would like to discuss a project or collaboration opportunity.',
     location: 'Kampala, Uganda (East Africa Time - UTC+3)',
