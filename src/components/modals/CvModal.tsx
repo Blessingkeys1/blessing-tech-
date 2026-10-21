@@ -21,30 +21,30 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-slate-900 border-b border-slate-800">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 sm:px-6 py-3 sm:py-4 bg-slate-900 border-b border-slate-800">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <h2 className="text-sm sm:text-base font-bold text-white">
+            <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <h2 className="text-xs sm:text-base font-bold text-white truncate max-w-[200px] sm:max-w-none">
               Curriculum Vitae — Blessing Technologies
             </h2>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             <a
               href="/blessing-technologies-cv.html"
               download="Blessing_Technologies_CV.html"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
             >
               <Download className="w-3.5 h-3.5" />
-              Download CV
+              <span className="hidden xs:inline sm:inline">Download</span> CV
             </a>
 
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
             >
               <Printer className="w-3.5 h-3.5" />
-              Print / Save PDF
+              <span className="hidden sm:inline">Print / PDF</span>
             </button>
 
             <a
@@ -68,7 +68,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Scrollable CV Document View */}
-        <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-8 bg-[#090d16]">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-10 space-y-6 sm:space-y-8 bg-[#090d16]">
           {/* Header Block */}
           <div className="border-b border-slate-800 pb-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

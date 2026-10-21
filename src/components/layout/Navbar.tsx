@@ -79,10 +79,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-sm tracking-tight text-white light:text-slate-900 group-hover:text-blue-400 transition-colors">
+              <span className="font-bold text-xs sm:text-sm tracking-tight text-white light:text-slate-900 group-hover:text-blue-400 transition-colors">
                 {profileData.brand}
               </span>
-              <span className="text-[10px] text-blue-400 light:text-blue-600 font-mono tracking-wider uppercase">
+              <span className="text-[9px] sm:text-[10px] text-blue-400 light:text-blue-600 font-mono tracking-wider uppercase">
                 Software & Creative Tech
               </span>
             </div>
@@ -108,8 +108,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             })}
           </nav>
 
-          {/* Actions & Buttons */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          {/* Desktop Actions & Buttons */}
+          <div className="hidden lg:flex items-center gap-2.5">
             {/* CV Modal Trigger */}
             <button
               onClick={onOpenCv}
@@ -142,12 +142,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             </a>
           </div>
 
-          {/* Mobile Menu & Theme Toggle */}
+          {/* Mobile & Tablet Controls */}
           <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 rounded-lg bg-slate-800 text-slate-300"
+              className="p-2 rounded-lg bg-slate-800/90 text-slate-300 border border-slate-700/60"
             >
               {theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-400" />
@@ -158,9 +158,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
-              className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-slate-800/90 text-slate-300 hover:text-white transition-colors border border-slate-700/60"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-[#07090e]/95 light:bg-white/95 backdrop-blur-xl border-b border-slate-800 light:border-slate-200 px-6 py-6 shadow-2xl transition-all animate-fadeIn">
+        <div className="lg:hidden absolute inset-x-0 top-full bg-[#07090e]/95 light:bg-white/95 backdrop-blur-xl border-b border-slate-800 light:border-slate-200 px-6 py-6 shadow-2xl transition-all animate-fadeIn max-h-[calc(100vh-80px)] overflow-y-auto">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);

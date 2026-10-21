@@ -73,7 +73,7 @@ export const Skills: React.FC = () => {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredCategories.map((category) => (
             <div
               key={category.id}

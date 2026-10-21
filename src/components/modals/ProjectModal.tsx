@@ -136,12 +136,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
         </div>
 
         {/* Footer Actions */}
-        <div className="p-6 bg-slate-900/90 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="p-4 sm:p-6 bg-slate-900/90 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             {project.demoUrl ? (
               <a
                 href={project.demoUrl}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-lg shadow-blue-600/30"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-lg shadow-blue-600/30"
               >
                 <ExternalLink className="w-4 h-4" />
                 Live Demo
@@ -157,7 +157,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
                 View Code
@@ -174,7 +174,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
               onClose();
               onSelectContact(project.title);
             }}
-            className="px-4 py-2 rounded-xl text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md shadow-blue-600/20"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md shadow-blue-600/20 text-center"
           >
             Inquire About Similar Project
           </button>

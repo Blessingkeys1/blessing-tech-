@@ -39,13 +39,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
             {/* Headline */}
             <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white light:text-slate-900 leading-[1.1]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white light:text-slate-900 leading-[1.15]">
                 Welcome to{' '}
                 <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
                   {profileData.brand}
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl font-semibold text-slate-200 light:text-slate-800 leading-snug">
+              <p className="text-base sm:text-xl font-semibold text-slate-200 light:text-slate-800 leading-snug">
                 {profileData.subheadline}
               </p>
             </div>
@@ -56,10 +56,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200 text-center"
               >
                 <span>View My Projects</span>
                 <ArrowRight className="w-4 h-4" />
@@ -67,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200 text-center"
               >
                 <span>Hire Me</span>
                 <ArrowRight className="w-4 h-4" />
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
               <button
                 onClick={onOpenCv}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-200 light:text-slate-800 bg-slate-900/80 light:bg-slate-200/80 hover:bg-slate-800 light:hover:bg-slate-300 border border-slate-700/80 light:border-slate-300 hover:border-blue-400 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-slate-200 light:text-slate-800 bg-slate-900/80 light:bg-slate-200/80 hover:bg-slate-800 light:hover:bg-slate-300 border border-slate-700/80 light:border-slate-300 hover:border-blue-400 transition-all duration-200 text-center"
               >
                 <Download className="w-4 h-4 text-blue-400" />
                 <span>Download My CV</span>
@@ -176,7 +176,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
               </div>
 
               {/* Quick Competencies Grid */}
-              <div className="grid grid-cols-2 gap-3 text-left">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 <div className="p-3 rounded-xl bg-slate-900/80 light:bg-slate-100 border border-slate-800/80 light:border-slate-200 flex items-start gap-2.5">
                   <Code2 className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
                   <div>
@@ -220,7 +220,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
         </div>
 
         {/* Stats Row */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {profileData.stats.map((stat, idx) => (
             <div
               key={idx}

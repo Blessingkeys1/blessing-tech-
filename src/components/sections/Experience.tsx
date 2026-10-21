@@ -60,9 +60,9 @@ export const Experience: React.FC = () => {
 
                   {/* Card Content Container */}
                   <div
-                    className={`ml-12 md:ml-0 md:w-1/2 ${
+                    className={`w-[calc(100%-3rem)] ml-12 md:ml-0 md:w-1/2 ${
                       isEven ? 'md:pr-12' : 'md:pl-12'
-                    } w-full`}
+                    }`}
                   >
                     <div className="p-6 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-xl hover:border-slate-700 transition-all duration-300 space-y-3">
                       {/* Top Info Bar */}

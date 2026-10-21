@@ -28,7 +28,7 @@ export const Testimonials: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonialsData.map((item) => (
             <div
               key={item.id}
