@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Home, Terminal } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 
@@ -21,13 +22,13 @@ export const NotFound: React.FC = () => {
         </div>
 
         <div>
-          <a
-            href="/"
+          <Link
+            to="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-orange-600 hover:bg-orange-500 shadow-lg shadow-orange-600/30 transition-all hover:scale-105"
           >
             <Home className="w-4 h-4" />
             <span>Return to Portfolio Home</span>
-          </a>
+          </Link>
         </div>
 
         <p className="text-[11px] text-orange-400/80 font-mono">

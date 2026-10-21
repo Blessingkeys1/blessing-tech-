@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '../../context/ThemeContext';
 import { profileData } from '../../data/portfolioData';
 import {
@@ -18,37 +19,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
   const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills & Services', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Creative Media', href: '#creative-media' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Services', path: '/services' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Experience', path: '/experience' },
+    { name: 'Media', path: '/media' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' },
   ];
+
+  const isLinkActive = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname === path || location.pathname.startsWith(path + '/');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      const sections = navLinks.map((link) => link.href.substring(1));
-      const scrollPosition = window.scrollY + 120;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -66,8 +59,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
-          <a
-            href="#home"
+          <Link
+            to="/"
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Blessing Technologies Home"
           >
@@ -86,24 +79,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
                 Software & Creative Tech
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-900/70 light:bg-slate-100/80 px-3 py-1.5 rounded-full border border-orange-500/15 light:border-slate-200 backdrop-blur-md">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const active = isLinkActive(link.path);
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.path}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                    isActive
-                      ? 'bg-orange-600 text-white shadow-sm shadow-orange-600/50'
+                    active
+                      ? 'bg-orange-600 text-white font-semibold shadow-sm shadow-orange-600/50'
                       : 'text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-slate-200'
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -133,13 +126,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             </button>
 
             {/* Hire Me CTA */}
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-orange-600 hover:bg-orange-500 shadow-md shadow-orange-600/30 hover:shadow-orange-600/50 transition-all duration-200"
             >
               <span>Hire Me</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile & Tablet Controls */}
@@ -152,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
               {theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-400" />
               ) : (
-                <Moon className="w-4 h-4 text-indigo-600" />
+                <Moon className="w-4 h-4 text-orange-600" />
               )}
             </button>
             <button
@@ -171,20 +164,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
         <div className="lg:hidden absolute inset-x-0 top-full bg-[#07090e]/95 light:bg-white/95 backdrop-blur-xl border-b border-slate-800 light:border-slate-200 px-6 py-6 shadow-2xl transition-all animate-fadeIn max-h-[calc(100vh-80px)] overflow-y-auto">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const active = isLinkActive(link.path);
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    isActive
+                    active
                       ? 'bg-orange-600 text-white font-semibold'
                       : 'text-slate-300 light:text-slate-700 hover:bg-slate-800 light:hover:bg-slate-100'
                   }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -200,14 +193,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
               <FileText className="w-4 h-4 text-orange-400" />
               View & Download Curriculum Vitae
             </button>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white bg-orange-600 hover:bg-orange-500 shadow-md shadow-orange-600/30 transition-colors"
             >
               <span>Get in Touch / Hire Me</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       )}

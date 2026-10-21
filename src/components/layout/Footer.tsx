@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { profileData } from '../../data/portfolioData';
 import {
   Mail,
   ArrowUp,
   MapPin,
+  Phone,
   MessageSquare,
 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from '../icons/BrandIcons';
@@ -22,8 +24,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-850 border-white/5">
           {/* Brand Column */}
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative w-11 h-11 rounded-xl overflow-hidden p-[2px] bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 shadow-lg shadow-orange-500/25 flex items-center justify-center bg-black">
+            <Link to="/" className="flex items-center gap-3 group w-fit">
+              <div className="relative w-11 h-11 rounded-xl overflow-hidden p-[2px] bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 shadow-lg shadow-orange-500/25 flex items-center justify-center bg-black group-hover:scale-105 transition-transform">
                 <img
                   src="/images/blessing-technologies-logo.png"
                   alt="Blessing Technologies Logo"
@@ -31,60 +33,76 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <div>
-                <span className="font-extrabold text-lg text-white tracking-tight uppercase">
+                <span className="font-extrabold text-lg text-white tracking-tight uppercase group-hover:text-orange-400 transition-colors">
                   {profileData.brand}
                 </span>
                 <span className="block text-xs text-orange-400 font-mono font-semibold">
                   Software & Creative Tech
                 </span>
               </div>
-            </div>
+            </Link>
 
             <p className="text-sm text-slate-300 max-w-md leading-relaxed">
               "{profileData.slogan}" — Pursuing excellence in backend architectures, reliable software systems, modern web development, and engaging digital media production.
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
-              <MapPin className="w-4 h-4 text-orange-400 flex-shrink-0" />
-              <span>{profileData.location} • East Africa (UTC+3)</span>
+            <div className="flex flex-col sm:flex-row gap-3 text-xs text-slate-400 pt-1">
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span>{profileData.location}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-orange-400 flex-shrink-0" />
+                <span>{profileData.contact.phone}</span>
+              </div>
             </div>
           </div>
 
           {/* Quick Navigation Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Navigation
+              Pages & Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-orange-400 transition-colors">
-                  About Journey & Experience
-                </a>
+                <Link to="/" className="hover:text-orange-400 transition-colors">
+                  Home Overview
+                </Link>
               </li>
               <li>
-                <a href="#skills" className="hover:text-orange-400 transition-colors">
-                  Skills & Services
-                </a>
+                <Link to="/about" className="hover:text-orange-400 transition-colors">
+                  About Journey & Philosophy
+                </Link>
               </li>
               <li>
-                <a href="#projects" className="hover:text-orange-400 transition-colors">
-                  Projects & Prototypes
-                </a>
+                <Link to="/services" className="hover:text-orange-400 transition-colors">
+                  Services & Core Pillars
+                </Link>
               </li>
               <li>
-                <a href="#experience" className="hover:text-orange-400 transition-colors">
-                  Experience Timeline
-                </a>
+                <Link to="/projects" className="hover:text-orange-400 transition-colors">
+                  Projects & Case Studies
+                </Link>
               </li>
               <li>
-                <a href="#creative-media" className="hover:text-orange-400 transition-colors">
-                  Creative Media Gallery
-                </a>
+                <Link to="/experience" className="hover:text-orange-400 transition-colors">
+                  Career Experience Timeline
+                </Link>
               </li>
               <li>
-                <a href="#blog" className="hover:text-orange-400 transition-colors">
-                  Technical Blog & Articles
-                </a>
+                <Link to="/media" className="hover:text-orange-400 transition-colors">
+                  Creative Media & Broadcast
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="hover:text-orange-400 transition-colors">
+                  Technical Blog & Notes
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-orange-400 transition-colors">
+                  Contact & Inquiries
+                </Link>
               </li>
             </ul>
           </div>
@@ -92,7 +110,7 @@ export const Footer: React.FC = () => {
           {/* Connect & Social */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">
-              Connect With Me
+              Connect With Us
             </h4>
             <p className="text-xs text-slate-400">
               Open to freelance projects, technical collaborations, and remote engineering opportunities.
