@@ -2,21 +2,24 @@
 
 @layer base {
   :root {
-    --bg-primary: #07090e;
-    --bg-secondary: #0c101a;
-    --bg-card: rgba(15, 23, 42, 0.7);
-    --border-color: rgba(255, 255, 255, 0.08);
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
+    --bg-primary: #040507;
+    --bg-secondary: #0a0b0f;
+    --bg-card: rgba(14, 15, 20, 0.82);
+    --border-color: rgba(249, 115, 22, 0.15);
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --brand-orange: #f97316;
+    --brand-amber: #f58a1f;
+    --brand-dark: #050608;
   }
 
   html.light {
-    --bg-primary: #f8fafc;
-    --bg-secondary: #f1f5f9;
-    --bg-card: rgba(255, 255, 255, 0.85);
-    --border-color: rgba(0, 0, 0, 0.08);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
+    --bg-primary: #fafafa;
+    --bg-secondary: #f4f4f6;
+    --bg-card: rgba(255, 255, 255, 0.92);
+    --border-color: rgba(249, 115, 22, 0.2);
+    --text-primary: #09090b;
+    --text-secondary: #4b5563;
   }
 
   body {
@@ -33,63 +36,68 @@
   code, pre {
     font-family: 'Fira Code', monospace;
   }
+
+  ::selection {
+    background-color: #f97316;
+    color: #000000;
+  }
 }
 
-/* Glassmorphism utility */
+/* Glassmorphism utility aligned with Brand Black & Orange */
 .glass-panel {
-  background: rgba(12, 16, 26, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 11, 15, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(249, 115, 22, 0.16);
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(249, 115, 22, 0.2);
 }
 
-/* Gradient glow effects */
-.glow-blue {
-  box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.25);
+/* Official Blessing Technologies Glow Effects */
+.glow-orange {
+  box-shadow: 0 0 35px -5px rgba(249, 115, 22, 0.35);
 }
 
-.glow-purple {
-  box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.25);
+.glow-amber {
+  box-shadow: 0 0 35px -5px rgba(245, 138, 31, 0.3);
 }
 
-.glow-cyan {
-  box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.25);
+.glow-subtle {
+  box-shadow: 0 0 20px -3px rgba(249, 115, 22, 0.15);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar matching Brand Colors */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #07090e;
+  background: #040507;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #27272a;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #f97316;
 }
 
-/* Subtle background grid */
+/* Subtle tech grid background with warm ambient undertone */
 .bg-tech-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
 .light .bg-tech-grid {
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(249, 115, 22, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.04) 1px, transparent 1px);
 }
 
 /* Responsive FadeIn Animation */

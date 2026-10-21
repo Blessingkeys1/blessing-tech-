@@ -164,11 +164,11 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#090d16] light:bg-slate-100/60">
+    <section id="contact" className="py-24 relative bg-[#040507] light:bg-slate-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-600/10 text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-orange-600/10 text-orange-400 border border-orange-500/20 uppercase tracking-wider font-mono">
             Initiate Contact
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
@@ -182,7 +182,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Left Column: Direct Gateways & Socials */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-7 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-xl space-y-6">
+            <div className="p-7 rounded-3xl bg-[#090a0f] light:bg-white border border-orange-500/15 light:border-slate-200 shadow-xl space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-white light:text-slate-900">
                   Direct Communication Channels
@@ -197,16 +197,16 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 {/* Email */}
                 <a
                   href={`mailto:${profileData.contact.email}`}
-                  className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-900/70 light:bg-slate-50 border border-slate-800/80 light:border-slate-200 hover:border-blue-500/40 transition-colors group"
+                  className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-900/70 light:bg-slate-50 border border-slate-800/80 light:border-slate-200 hover:border-orange-500/40 transition-colors group"
                 >
-                  <div className="p-2.5 rounded-xl bg-blue-600/10 text-blue-400 border border-blue-500/20 group-hover:scale-105 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-orange-600/10 text-orange-400 border border-orange-500/20 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <div className="text-xs font-semibold text-slate-400 light:text-slate-500">
                       Email Address
                     </div>
-                    <div className="text-xs sm:text-sm font-bold text-white light:text-slate-800 group-hover:text-blue-400 transition-colors break-all">
+                    <div className="text-xs sm:text-sm font-bold text-white light:text-slate-800 group-hover:text-orange-400 transition-colors break-all">
                       {profileData.contact.email}
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
 
                 {/* Location */}
                 <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-slate-900/70 light:bg-slate-50 border border-slate-800/80 light:border-slate-200">
-                  <div className="p-2.5 rounded-xl bg-purple-600/10 text-purple-400 border border-purple-500/20">
+                  <div className="p-2.5 rounded-xl bg-amber-600/10 text-amber-400 border border-amber-500/20">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
@@ -263,7 +263,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     href={profileData.contact.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 hover:border-orange-500/50 transition-colors"
                   >
                     <GithubIcon className="w-4 h-4" />
                     <span>GitHub</span>
@@ -273,7 +273,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     href={profileData.contact.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 hover:border-orange-500/50 transition-colors"
                   >
                     <LinkedinIcon className="w-4 h-4 text-blue-400" />
                     <span>LinkedIn</span>
@@ -283,7 +283,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     href={profileData.contact.upwork}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 hover:border-orange-500/50 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4 text-emerald-400" />
                     <span>Upwork</span>
@@ -293,7 +293,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     href={profileData.contact.youtube}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 transition-colors"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-900 light:bg-slate-100 text-slate-300 light:text-slate-700 hover:text-white border border-slate-800 light:border-slate-200 hover:border-orange-500/50 transition-colors"
                   >
                     <YoutubeIcon className="w-4 h-4 text-rose-500" />
                     <span>YouTube</span>
@@ -305,12 +305,12 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
 
           {/* Right Column: Verified Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-7 sm:p-8 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-xl">
+            <div className="p-7 sm:p-8 rounded-3xl bg-[#090a0f] light:bg-white border border-orange-500/15 light:border-slate-200 shadow-xl">
               <h3 className="text-xl font-bold text-white light:text-slate-900 mb-1">
                 Send a Message or Project Brief
               </h3>
               <p className="text-xs text-slate-400 light:text-slate-600 mb-6">
-                Fill out the form below. Inquiries are sent directly to <span className="text-blue-400 font-semibold">blessingstechnologies4@gmail.com</span> for prompt response.
+                Fill out the form below. Inquiries are sent directly to <span className="text-orange-400 font-semibold font-mono">blessingstechnologies4@gmail.com</span> for prompt response.
               </p>
 
               {/* Status Banner */}
@@ -350,7 +350,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                   {/* Name */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
-                      Your Name <span className="text-rose-400">*</span>
+                      Your Name <span className="text-orange-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -361,7 +361,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                       disabled={isSubmitting}
                       className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                         errors.name ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                      } focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60`}
+                      } focus:outline-none focus:border-orange-500 transition-colors disabled:opacity-60`}
                     />
                     {errors.name && <p className="text-[11px] text-rose-400">{errors.name}</p>}
                   </div>
@@ -369,7 +369,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                   {/* Email */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
-                      Your Email Address <span className="text-rose-400">*</span>
+                      Your Email Address <span className="text-orange-400">*</span>
                     </label>
                     <input
                       type="email"
@@ -380,7 +380,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                       disabled={isSubmitting}
                       className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                         errors.email ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                      } focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60`}
+                      } focus:outline-none focus:border-orange-500 transition-colors disabled:opacity-60`}
                     />
                     {errors.email && <p className="text-[11px] text-rose-400">{errors.email}</p>}
                   </div>
@@ -396,7 +396,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     disabled={isSubmitting}
-                    className="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border border-slate-800 light:border-slate-300 focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60"
+                    className="w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border border-slate-800 light:border-slate-300 focus:outline-none focus:border-orange-500 transition-colors disabled:opacity-60"
                   >
                     {services.map((srv, idx) => (
                       <option key={idx} value={srv} className="bg-slate-900 text-white">
@@ -409,7 +409,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 {/* Subject */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
-                    Subject Line <span className="text-rose-400">*</span>
+                    Subject Line <span className="text-orange-400">*</span>
                   </label>
                   <input
                     type="text"
@@ -420,7 +420,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     disabled={isSubmitting}
                     className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                       errors.subject ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                    } focus:outline-none focus:border-blue-500 transition-colors disabled:opacity-60`}
+                    } focus:outline-none focus:border-orange-500 transition-colors disabled:opacity-60`}
                   />
                   {errors.subject && <p className="text-[11px] text-rose-400">{errors.subject}</p>}
                 </div>
@@ -428,7 +428,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 {/* Message */}
                 <div className="space-y-1.5">
                   <label className="text-xs font-semibold text-slate-300 light:text-slate-700">
-                    Message Details <span className="text-rose-400">*</span>
+                    Message Details <span className="text-orange-400">*</span>
                   </label>
                   <textarea
                     rows={4}
@@ -439,7 +439,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                     disabled={isSubmitting}
                     className={`w-full px-4 py-2.5 rounded-xl text-xs sm:text-sm bg-slate-900 light:bg-slate-50 text-white light:text-slate-900 border ${
                       errors.message ? 'border-rose-500' : 'border-slate-800 light:border-slate-300'
-                    } focus:outline-none focus:border-blue-500 transition-colors resize-none disabled:opacity-60`}
+                    } focus:outline-none focus:border-orange-500 transition-colors resize-none disabled:opacity-60`}
                   />
                   {errors.message && <p className="text-[11px] text-rose-400">{errors.message}</p>}
                 </div>
@@ -449,7 +449,7 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 transition-all ${
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl text-xs sm:text-sm font-semibold text-white bg-orange-600 hover:bg-orange-500 shadow-lg shadow-orange-600/30 transition-all ${
                       isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:scale-105'
                     }`}
                   >
@@ -481,11 +481,11 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
         </div>
 
         {/* Interactive Location Map Banner */}
-        <div className="mt-12 rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 shadow-2xl overflow-hidden">
+        <div className="mt-12 rounded-3xl bg-[#090a0f] light:bg-white border border-orange-500/15 light:border-slate-200 shadow-2xl overflow-hidden">
           <div className="p-5 sm:p-6 border-b border-slate-800 light:border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-900/50 light:bg-slate-50/80">
             <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-blue-600/10 text-blue-400 border border-blue-500/20 shadow-md">
-                <MapPin className="w-5 h-5 text-blue-400" />
+              <div className="p-3 rounded-2xl bg-orange-600/10 text-orange-400 border border-orange-500/20 shadow-md">
+                <MapPin className="w-5 h-5 text-orange-400" />
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-white light:text-slate-900 flex items-center gap-2">
@@ -503,10 +503,10 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
                 href="https://maps.google.com/?q=Kampala,Uganda"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-slate-200 light:text-slate-800 border border-slate-700 light:border-slate-300 transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-slate-200 light:text-slate-800 border border-slate-700 light:border-slate-300 hover:border-orange-500/50 transition-colors"
               >
                 <span>Open in Google Maps</span>
-                <ExternalLink className="w-3.5 h-3.5 text-blue-400" />
+                <ExternalLink className="w-3.5 h-3.5 text-orange-400" />
               </a>
               <button
                 type="button"
@@ -534,14 +534,14 @@ export const Contact: React.FC<ContactProps> = ({ initialSubject = '' }) => {
             />
           </div>
 
-          <div className="p-4 sm:px-6 bg-[#080c14] light:bg-slate-50 border-t border-slate-800/80 light:border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 light:text-slate-600">
+          <div className="p-4 sm:px-6 bg-[#08090d] light:bg-slate-50 border-t border-slate-800/80 light:border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400 light:text-slate-600">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-blue-500" />
+              <span className="w-2 h-2 rounded-full bg-orange-500" />
               <span>Available for on-site media & livestreaming in Kampala/Mukono + global remote software roles</span>
             </div>
             <div className="flex items-center gap-4">
               <span>Timezone: <strong>East Africa Time (UTC+3)</strong></span>
-              <span>Direct Phone: <strong className="text-blue-400">{profileData.contact.phone}</strong></span>
+              <span>Direct Phone: <strong className="text-orange-400">{profileData.contact.phone}</strong></span>
             </div>
           </div>
         </div>

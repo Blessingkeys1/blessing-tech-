@@ -13,11 +13,11 @@ interface BlogProps {
 
 export const Blog: React.FC<BlogProps> = ({ onSelectPost }) => {
   return (
-    <section id="blog" className="py-24 relative bg-[#090d16] light:bg-slate-100/60">
+    <section id="blog" className="py-24 relative bg-[#040507] light:bg-slate-100/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-600/10 text-cyan-400 border border-cyan-500/20 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-orange-600/10 text-orange-400 border border-orange-500/20 uppercase tracking-wider font-mono">
             Thoughts & Architecture Insights
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white light:text-slate-900 tracking-tight">
@@ -34,22 +34,22 @@ export const Blog: React.FC<BlogProps> = ({ onSelectPost }) => {
             <article
               key={post.id}
               onClick={() => onSelectPost(post)}
-              className="group rounded-3xl bg-[#0b0f1a] light:bg-white border border-slate-800 light:border-slate-200 p-6 sm:p-7 shadow-xl hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
+              className="group rounded-3xl bg-[#090a0f] light:bg-white border border-orange-500/15 light:border-slate-200 p-6 sm:p-7 shadow-xl hover:border-orange-500/40 transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div className="space-y-4">
                 {/* Meta Header */}
                 <div className="flex items-center justify-between text-xs">
-                  <span className="px-3 py-1 rounded-full font-semibold bg-blue-600/10 text-blue-400 border border-blue-500/20">
+                  <span className="px-3 py-1 rounded-full font-semibold bg-orange-600/10 text-orange-400 border border-orange-500/20 font-mono text-[11px]">
                     {post.category}
                   </span>
-                  <div className="flex items-center gap-1.5 text-slate-400 light:text-slate-500 font-mono">
-                    <Clock className="w-3.5 h-3.5" />
+                  <div className="flex items-center gap-1.5 text-slate-400 light:text-slate-500 font-mono text-[11px]">
+                    <Clock className="w-3.5 h-3.5 text-amber-400" />
                     <span>{post.readTime}</span>
                   </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-white light:text-slate-900 group-hover:text-cyan-400 transition-colors leading-snug line-clamp-2">
+                <h3 className="text-lg font-bold text-white light:text-slate-900 group-hover:text-orange-400 transition-colors leading-snug line-clamp-2">
                   {post.title}
                 </h3>
 
@@ -63,7 +63,7 @@ export const Blog: React.FC<BlogProps> = ({ onSelectPost }) => {
                   {post.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 light:bg-slate-100 text-slate-400 light:text-slate-600"
+                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 light:bg-slate-100 text-slate-400 light:text-slate-600 border border-white/5"
                     >
                       #{tag}
                     </span>
@@ -73,11 +73,11 @@ export const Blog: React.FC<BlogProps> = ({ onSelectPost }) => {
 
               {/* Footer */}
               <div className="pt-6 mt-6 border-t border-slate-800/80 light:border-slate-100 flex items-center justify-between text-xs">
-                <div className="flex items-center gap-1.5 text-slate-400 light:text-slate-500">
-                  <Calendar className="w-3.5 h-3.5" />
+                <div className="flex items-center gap-1.5 text-slate-400 light:text-slate-500 font-mono text-[11px]">
+                  <Calendar className="w-3.5 h-3.5 text-orange-400" />
                   <span>{post.publishDate}</span>
                 </div>
-                <span className="inline-flex items-center gap-1 font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform">
+                <span className="inline-flex items-center gap-1 font-semibold text-orange-400 group-hover:translate-x-1 transition-transform">
                   Read Article <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>

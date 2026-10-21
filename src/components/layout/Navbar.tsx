@@ -71,25 +71,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Blessing Technologies Home"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-[1.5px] shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-              <div className="w-full h-full bg-[#07090e] light:bg-white rounded-[10px] flex items-center justify-center">
-                <span className="font-extrabold text-base bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  BT
-                </span>
-              </div>
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden p-[2px] bg-gradient-to-br from-orange-500 via-amber-500 to-orange-600 shadow-lg shadow-orange-500/25 group-hover:scale-105 transition-transform flex items-center justify-center bg-black">
+              <img
+                src="/images/blessing-technologies-logo.png"
+                alt="Blessing Technologies Logo"
+                className="w-full h-full object-cover rounded-[9px]"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xs sm:text-sm tracking-tight text-white light:text-slate-900 group-hover:text-blue-400 transition-colors">
+              <span className="font-extrabold text-xs sm:text-sm tracking-tight text-white light:text-slate-900 group-hover:text-orange-400 transition-colors uppercase">
                 {profileData.brand}
               </span>
-              <span className="text-[9px] sm:text-[10px] text-blue-400 light:text-blue-600 font-mono tracking-wider uppercase">
+              <span className="text-[9px] sm:text-[10px] text-orange-400 light:text-orange-600 font-mono tracking-wider uppercase font-semibold">
                 Software & Creative Tech
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-900/60 light:bg-slate-100/80 px-3 py-1.5 rounded-full border border-white/5 light:border-slate-200 backdrop-blur-md">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-900/70 light:bg-slate-100/80 px-3 py-1.5 rounded-full border border-orange-500/15 light:border-slate-200 backdrop-blur-md">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
                   href={link.href}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-600 text-white shadow-sm shadow-blue-600/50'
+                      ? 'bg-orange-600 text-white shadow-sm shadow-orange-600/50'
                       : 'text-slate-300 light:text-slate-600 hover:text-white light:hover:text-slate-900 hover:bg-white/5 light:hover:bg-slate-200'
                   }`}
                 >
@@ -113,9 +113,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             {/* CV Modal Trigger */}
             <button
               onClick={onOpenCv}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800/80 light:bg-slate-200/80 text-slate-200 light:text-slate-800 border border-slate-700/60 light:border-slate-300 hover:border-blue-500 transition-all hover:bg-slate-800"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-800/80 light:bg-slate-200/80 text-slate-200 light:text-slate-800 border border-slate-700/60 light:border-slate-300 hover:border-orange-500 transition-all hover:bg-slate-800"
             >
-              <FileText className="w-3.5 h-3.5 text-blue-400" />
+              <FileText className="w-3.5 h-3.5 text-orange-400" />
               <span>CV</span>
             </button>
 
@@ -123,19 +123,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
             <button
               onClick={toggleTheme}
               aria-label="Toggle light or dark theme"
-              className="p-2 rounded-xl bg-slate-800/80 light:bg-slate-200/80 text-slate-300 light:text-slate-700 hover:text-white light:hover:text-black border border-slate-700/60 light:border-slate-300 transition-all hover:scale-105"
+              className="p-2 rounded-xl bg-slate-800/80 light:bg-slate-200/80 text-slate-300 light:text-slate-700 hover:text-white light:hover:text-black border border-slate-700/60 light:border-slate-300 transition-all hover:scale-105 hover:border-orange-500/50"
             >
               {theme === 'dark' ? (
                 <Sun className="w-4 h-4 text-amber-400" />
               ) : (
-                <Moon className="w-4 h-4 text-indigo-600" />
+                <Moon className="w-4 h-4 text-orange-600" />
               )}
             </button>
 
             {/* Hire Me CTA */}
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 hover:shadow-blue-600/50 transition-all duration-200"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-orange-600 hover:bg-orange-500 shadow-md shadow-orange-600/30 hover:shadow-orange-600/50 transition-all duration-200"
             >
               <span>Hire Me</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -179,7 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-blue-600 text-white font-semibold'
+                      ? 'bg-orange-600 text-white font-semibold'
                       : 'text-slate-300 light:text-slate-700 hover:bg-slate-800 light:hover:bg-slate-100'
                   }`}
                 >
@@ -195,15 +195,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCv }) => {
                 setMobileMenuOpen(false);
                 onOpenCv();
               }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 light:bg-slate-200 text-slate-200 light:text-slate-800 hover:border hover:border-orange-500"
             >
-              <FileText className="w-4 h-4 text-blue-400" />
+              <FileText className="w-4 h-4 text-orange-400" />
               View & Download Curriculum Vitae
             </button>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white bg-orange-600 hover:bg-orange-500 shadow-md shadow-orange-600/30 transition-colors"
             >
               <span>Get in Touch / Hire Me</span>
               <ArrowRight className="w-4 h-4" />

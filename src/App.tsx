@@ -43,7 +43,7 @@ const PortfolioHome: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#07090e] text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[#040507] text-slate-100 transition-colors duration-300">
       {/* Sticky Navigation */}
       <Navbar onOpenCv={() => setIsCvModalOpen(true)} />
 

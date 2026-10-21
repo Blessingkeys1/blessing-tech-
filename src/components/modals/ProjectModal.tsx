@@ -16,21 +16,21 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
     switch (status) {
       case 'Completed':
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono">
             <CheckCircle2 className="w-3.5 h-3.5" />
             Completed
           </span>
         );
       case 'In Progress':
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono">
             <Clock className="w-3.5 h-3.5" />
             In Progress
           </span>
         );
       case 'Concept':
         return (
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/30">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/10 text-orange-400 border border-orange-500/30 font-mono">
             <Sparkles className="w-3.5 h-3.5" />
             Proposed Concept / Architecture
           </span>
@@ -39,19 +39,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto animate-fadeIn">
       <div
-        className="relative w-full max-w-3xl my-8 bg-[#0d121f] text-slate-100 rounded-2xl border border-slate-700/60 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-3xl my-8 bg-[#090a0f] text-slate-100 rounded-2xl border border-orange-500/20 shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Image */}
-        <div className="relative h-64 sm:h-72 w-full bg-slate-900 overflow-hidden">
+        <div className="relative h-64 sm:h-72 w-full bg-slate-950 overflow-hidden">
           <img
             src={project.image}
             alt={project.title}
             className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0d121f] via-[#0d121f]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#090a0f] via-[#090a0f]/40 to-transparent" />
           
           {/* Close button */}
           <button
@@ -64,7 +64,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
           {/* Badges on Image */}
           <div className="absolute bottom-4 left-6 right-6 flex flex-wrap items-center justify-between gap-3">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-600/90 text-white tracking-wide uppercase">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-orange-600/90 text-white tracking-wide uppercase">
               {project.category}
             </span>
             {getStatusBadge(project.status)}
@@ -77,7 +77,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               {project.title}
             </h2>
-            <p className="text-blue-400 font-medium text-sm sm:text-base mt-1">
+            <p className="text-orange-400 font-medium text-sm sm:text-base mt-1 font-mono">
               {project.tagline}
             </p>
           </div>
@@ -104,13 +104,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
           {/* Key Features */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-3 font-mono">
               Key Features & System Capabilities
             </h3>
             <ul className="space-y-2.5">
               {project.features.map((feat, idx) => (
                 <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-300">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-orange-400 mt-2 flex-shrink-0" />
                   <span>{feat}</span>
                 </li>
               ))}
@@ -119,14 +119,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
 
           {/* Technologies Used */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-3">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-3 font-mono">
               Technologies & Tools
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 rounded-lg text-xs font-mono bg-blue-950/60 text-blue-300 border border-blue-800/40"
+                  className="px-3 py-1 rounded-lg text-xs font-mono bg-orange-950/40 text-orange-300 border border-orange-500/30"
                 >
                   {tech}
                 </span>
@@ -136,12 +136,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
         </div>
 
         {/* Footer Actions */}
-        <div className="p-4 sm:p-6 bg-slate-900/90 border-t border-slate-800 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
+        <div className="p-4 sm:p-6 bg-[#050608] border-t border-orange-500/15 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             {project.demoUrl ? (
               <a
                 href={project.demoUrl}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-lg shadow-blue-600/30"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-orange-600 hover:bg-orange-500 text-white transition-colors shadow-lg shadow-orange-600/30"
               >
                 <ExternalLink className="w-4 h-4" />
                 Live Demo
@@ -157,7 +157,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-orange-500 transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
                 View Code
@@ -174,7 +174,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, on
               onClose();
               onSelectContact(project.title);
             }}
-            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md shadow-blue-600/20 text-center"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs sm:text-sm font-medium bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md shadow-orange-600/20 text-center"
           >
             Inquire About Similar Project
           </button>

@@ -26,17 +26,17 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
       <div
-        className="relative w-full max-w-3xl my-8 bg-[#0b0f19] text-slate-100 rounded-2xl border border-slate-700/70 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-3xl my-8 bg-[#090a0f] text-slate-100 rounded-2xl border border-orange-500/20 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header bar */}
-        <div className="flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#050608] border-b border-orange-500/15">
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-600/20 text-blue-400 border border-blue-500/30">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-orange-600/20 text-orange-400 border border-orange-500/30 font-mono">
               {post.category}
             </span>
-            <div className="flex items-center gap-1.5 text-xs text-slate-400">
-              <Clock className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+              <Clock className="w-3.5 h-3.5 text-amber-400" />
               <span>{post.readTime}</span>
             </div>
           </div>
@@ -44,9 +44,9 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
             <button
               onClick={handleShare}
               title="Share article"
-              className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+              className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 hover:border hover:border-orange-500 transition-colors"
             >
-              <Share2 className="w-4 h-4" />
+              <Share2 className="w-4 h-4 text-orange-400" />
             </button>
             <button
               onClick={onClose}
@@ -59,18 +59,18 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
         </div>
 
         {/* Article Body */}
-        <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-6">
+        <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-6 bg-[#040507]">
           <div>
-            <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
-              <Calendar className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-2 text-xs text-slate-400 mb-2 font-mono">
+              <Calendar className="w-3.5 h-3.5 text-orange-400" />
               <span>Published on {post.publishDate}</span>
               <span>•</span>
-              <span className="text-blue-400 font-medium">By Blessing Technologies</span>
+              <span className="text-orange-400 font-medium">By Blessing Technologies</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight">
               {post.title}
             </h1>
-            <p className="text-base text-slate-300 italic mt-3 border-l-2 border-blue-500 pl-4 py-1 bg-blue-950/20 rounded-r">
+            <p className="text-base text-slate-300 italic mt-3 border-l-2 border-orange-500 pl-4 py-1 bg-orange-950/20 rounded-r">
               {post.excerpt}
             </p>
           </div>
@@ -79,7 +79,7 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
             {post.content.map((paragraph, idx) => {
               if (paragraph.startsWith('1.') || paragraph.startsWith('2.') || paragraph.startsWith('3.')) {
                 return (
-                  <div key={idx} className="p-3.5 rounded-xl bg-slate-900 border border-slate-800/90 font-medium text-slate-200">
+                  <div key={idx} className="p-3.5 rounded-xl bg-slate-900 border border-orange-500/20 font-medium text-slate-200">
                     {paragraph}
                   </div>
                 );
@@ -102,11 +102,11 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
           {/* Tags */}
           <div className="pt-6 border-t border-slate-800">
             <div className="flex items-center gap-2 flex-wrap">
-              <Tag className="w-4 h-4 text-slate-400" />
+              <Tag className="w-4 h-4 text-orange-400" />
               {post.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-300 border border-white/5"
                 >
                   #{tag}
                 </span>
@@ -116,16 +116,16 @@ export const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
         </div>
 
         {/* Author Bio Footer */}
-        <div className="px-6 py-4 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+        <div className="px-6 py-4 bg-[#050608] border-t border-orange-500/15 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img
               src="/images/blessing-avatar.jpg"
               alt="Blessing Technologies"
-              className="w-9 h-9 rounded-full object-cover border border-blue-500/40"
+              className="w-9 h-9 rounded-full object-cover border border-orange-500/50"
             />
             <div>
-              <div className="text-xs font-semibold text-white">Blessing Technologies</div>
-              <div className="text-[11px] text-slate-400">Software Engineer & Creator</div>
+              <div className="text-xs font-semibold text-white uppercase">Blessing Technologies</div>
+              <div className="text-[11px] text-orange-400 font-mono">Software Engineer & Creator</div>
             </div>
           </div>
           <button

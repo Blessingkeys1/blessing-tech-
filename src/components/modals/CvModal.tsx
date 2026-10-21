@@ -17,14 +17,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
       <div
-        className="relative w-full max-w-4xl my-6 bg-[#0b0f19] text-slate-100 rounded-2xl border border-slate-700/80 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-4xl my-6 bg-[#08090d] text-slate-100 rounded-2xl border border-orange-500/20 shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 sm:px-6 py-3 sm:py-4 bg-slate-900 border-b border-slate-800">
+        <div className="flex flex-wrap items-center justify-between gap-2.5 px-4 sm:px-6 py-3 sm:py-4 bg-[#050608] border-b border-orange-500/15">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <h2 className="text-xs sm:text-base font-bold text-white truncate max-w-[200px] sm:max-w-none">
+            <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-orange-400 animate-pulse" />
+            <h2 className="text-xs sm:text-base font-bold text-white truncate max-w-[200px] sm:max-w-none uppercase font-sans">
               Curriculum Vitae — Blessing Technologies
             </h2>
           </div>
@@ -33,7 +33,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             <a
               href="/blessing-technologies-cv.html"
               download="Blessing_Technologies_CV.html"
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold bg-orange-600 hover:bg-orange-500 text-white transition-colors shadow-sm shadow-orange-600/30"
             >
               <Download className="w-3.5 h-3.5" />
               <span className="hidden xs:inline sm:inline">Download</span> CV
@@ -41,9 +41,9 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors"
+              className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-orange-500 transition-colors"
             >
-              <Printer className="w-3.5 h-3.5" />
+              <Printer className="w-3.5 h-3.5 text-orange-400" />
               <span className="hidden sm:inline">Print / PDF</span>
             </button>
 
@@ -51,10 +51,10 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
               href="/blessing-technologies-cv.html"
               target="_blank"
               rel="noreferrer"
-              className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
+              className="p-1.5 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 hover:border hover:border-orange-500 transition-colors"
               title="Open full page"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-4 h-4 text-orange-400" />
             </a>
 
             <button
@@ -68,39 +68,39 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Scrollable CV Document View */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-10 space-y-6 sm:space-y-8 bg-[#090d16]">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-10 space-y-6 sm:space-y-8 bg-[#040507]">
           {/* Header Block */}
-          <div className="border-b border-slate-800 pb-6">
+          <div className="border-b border-orange-500/15 pb-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h1 className="text-3xl font-extrabold tracking-tight text-white">
+                <h1 className="text-3xl font-extrabold tracking-tight text-white uppercase font-sans">
                   BLESSING TECHNOLOGIES
                 </h1>
-                <p className="text-blue-400 font-medium text-sm sm:text-base mt-1">
+                <p className="text-orange-400 font-medium text-sm sm:text-base mt-1 font-mono">
                   Software Engineer | Full-Stack Web Developer | Creative Digital Professional
                 </p>
-                <p className="text-xs text-purple-400 font-semibold tracking-wide uppercase mt-1">
+                <p className="text-xs text-amber-300 font-semibold tracking-wide uppercase mt-1 font-mono">
                   Brand: {profileData.brand} • "{profileData.slogan}"
                 </p>
               </div>
               <img
                 src="/images/blessing-avatar.jpg"
                 alt="Blessing Technologies"
-                className="w-20 h-20 rounded-2xl object-cover border-2 border-blue-500/50 shadow-lg"
+                className="w-20 h-20 rounded-2xl object-cover border-2 border-orange-500/50 shadow-lg shadow-orange-500/20"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-4 text-xs text-slate-300 pt-3 border-t border-slate-800/60">
               <span className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                <MapPin className="w-3.5 h-3.5 text-orange-400" />
                 {profileData.location}
               </span>
               <span className="flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-blue-400" />
+                <Mail className="w-3.5 h-3.5 text-orange-400" />
                 {profileData.contact.email}
               </span>
               <span className="flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-blue-400" />
+                <Phone className="w-3.5 h-3.5 text-orange-400" />
                 {profileData.contact.phone}
               </span>
             </div>
@@ -108,25 +108,25 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
           {/* Professional Objective */}
           <div>
-            <h3 className="text-xs uppercase tracking-wider text-blue-400 font-bold mb-2 flex items-center gap-1.5">
-              <Award className="w-4 h-4" />
+            <h3 className="text-xs uppercase tracking-wider text-orange-400 font-bold mb-2 flex items-center gap-1.5 font-mono">
+              <Award className="w-4 h-4 text-orange-400" />
               Professional Objective & Summary
             </h3>
-            <p className="text-sm text-slate-300 leading-relaxed bg-slate-900/60 p-4 rounded-xl border border-slate-800/80">
+            <p className="text-sm text-slate-300 leading-relaxed bg-[#090a0f] p-4 rounded-xl border border-orange-500/15">
               {profileData.objective}
             </p>
           </div>
 
           {/* Education */}
           <div>
-            <h3 className="text-xs uppercase tracking-wider text-purple-400 font-bold mb-3 flex items-center gap-1.5">
-              <BookOpen className="w-4 h-4" />
+            <h3 className="text-xs uppercase tracking-wider text-amber-400 font-bold mb-3 flex items-center gap-1.5 font-mono">
+              <BookOpen className="w-4 h-4 text-amber-400" />
               Education & Academic Foundation
             </h3>
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 space-y-2">
+            <div className="p-4 rounded-xl bg-[#090a0f] border border-orange-500/15 space-y-2">
               <div className="flex flex-wrap items-center justify-between">
                 <h4 className="text-sm font-bold text-white">Software Engineering</h4>
-                <span className="text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                <span className="text-xs text-amber-400 font-semibold bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20 font-mono">
                   2024 – Present
                 </span>
               </div>
@@ -139,13 +139,13 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
           {/* Technical & Creative Capabilities */}
           <div>
-            <h3 className="text-xs uppercase tracking-wider text-cyan-400 font-bold mb-3 flex items-center gap-1.5">
-              <Terminal className="w-4 h-4" />
+            <h3 className="text-xs uppercase tracking-wider text-orange-400 font-bold mb-3 flex items-center gap-1.5 font-mono">
+              <Terminal className="w-4 h-4 text-orange-400" />
               Core Technical & Creative Competencies
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-                <h4 className="text-xs font-bold text-blue-300 uppercase tracking-wide mb-2">
+              <div className="p-4 rounded-xl bg-[#090a0f] border border-orange-500/15">
+                <h4 className="text-xs font-bold text-orange-300 uppercase tracking-wide mb-2 font-mono">
                   Software Development
                 </h4>
                 <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
@@ -156,8 +156,8 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                 </ul>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800/80">
-                <h4 className="text-xs font-bold text-purple-300 uppercase tracking-wide mb-2">
+              <div className="p-4 rounded-xl bg-[#090a0f] border border-orange-500/15">
+                <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wide mb-2 font-mono">
                   Creative & Digital Support
                 </h4>
                 <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
@@ -172,14 +172,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
           {/* Key Practical Projects */}
           <div>
-            <h3 className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3">
+            <h3 className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3 font-mono">
               Practical Projects & Systems
             </h3>
             <div className="space-y-3">
-              <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
+              <div className="p-4 rounded-xl bg-[#090a0f] border border-orange-500/10">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-white">Wellspring School Management System</h4>
-                  <span className="text-[11px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">
+                  <span className="text-[11px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30 font-mono">
                     Offline Financial Software Concept
                   </span>
                 </div>
@@ -188,10 +188,10 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
+              <div className="p-4 rounded-xl bg-[#090a0f] border border-orange-500/10">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-white">Faith Connect Application</h4>
-                  <span className="text-[11px] text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/30">
+                  <span className="text-[11px] text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/30 font-mono">
                     Community Mobile App Concept
                   </span>
                 </div>
@@ -200,10 +200,10 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
+              <div className="p-4 rounded-xl bg-[#090a0f] border border-orange-500/10">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-bold text-white">Church Media & Livestream Production</h4>
-                  <span className="text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+                  <span className="text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 font-mono">
                     Practical Experience
                   </span>
                 </div>
@@ -216,7 +216,7 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between">
+        <div className="px-6 py-3 bg-[#050608] border-t border-orange-500/15 flex items-center justify-between">
           <span className="text-xs text-slate-400">
             Available for remote roles & freelance inquiries
           </span>

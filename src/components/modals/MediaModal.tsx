@@ -14,13 +14,13 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
       <div
-        className="relative w-full max-w-4xl my-8 bg-[#0b0f19] text-slate-100 rounded-2xl border border-slate-700/70 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-4xl my-8 bg-[#090a0f] text-slate-100 rounded-2xl border border-orange-500/20 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header bar */}
-        <div className="flex items-center justify-between px-6 py-4 bg-slate-900 border-b border-slate-800">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#050608] border-b border-orange-500/15">
           <div className="flex items-center gap-3">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-purple-600/20 text-purple-300 border border-purple-500/30 uppercase tracking-wider">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-orange-600/20 text-orange-400 border border-orange-500/30 uppercase tracking-wider font-mono">
               {item.category}
             </span>
             <span className="text-xs text-slate-400 font-medium">
@@ -37,7 +37,7 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
         </div>
 
         {/* Media Preview Area */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#040507]">
           <div className="relative rounded-xl overflow-hidden bg-black border border-slate-800 flex items-center justify-center">
             {item.category === 'Livestream Production' || item.category === 'Video Editing' ? (
               <div className="w-full relative group">
@@ -47,7 +47,7 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
                   className="w-full max-h-[460px] object-cover"
                 />
                 <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center gap-3 backdrop-blur-[2px]">
-                  <div className="w-16 h-16 rounded-full bg-blue-600/90 text-white flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-full bg-orange-600/95 text-white flex items-center justify-center shadow-lg shadow-orange-500/50 group-hover:scale-110 transition-transform">
                     <Play className="w-8 h-8 fill-current ml-1" />
                   </div>
                   <span className="text-sm font-semibold text-white bg-black/70 px-4 py-1.5 rounded-full border border-white/20">
@@ -77,15 +77,15 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
 
             {/* Tools Used */}
             <div>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
-                <Tag className="w-3.5 h-3.5" />
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5 font-mono">
+                <Tag className="w-3.5 h-3.5 text-orange-400" />
                 Tools & Software Utilized
               </h3>
               <div className="flex flex-wrap gap-2">
                 {item.toolsUsed.map((tool, idx) => (
                   <span
                     key={idx}
-                    className="px-3 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-200 border border-slate-700"
+                    className="px-3 py-1 rounded-md text-xs font-mono bg-slate-800 text-slate-200 border border-slate-700"
                   >
                     {tool}
                   </span>
@@ -96,7 +96,7 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
         </div>
 
         {/* Footer Actions */}
-        <div className="px-6 py-4 bg-slate-900 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="px-6 py-4 bg-[#050608] border-t border-orange-500/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <span className="text-xs text-slate-400">
             Client / Project Context: <strong className="text-slate-200">{item.clientOrContext}</strong>
           </span>
@@ -105,7 +105,7 @@ export const MediaModal: React.FC<MediaModalProps> = ({ item, onClose, onSelectH
               onClose();
               onSelectHire(item.title);
             }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-md"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold bg-orange-600 hover:bg-orange-500 text-white transition-all shadow-md shadow-orange-600/30"
           >
             <ExternalLink className="w-4 h-4" />
             Book Similar Creative Service

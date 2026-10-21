@@ -131,6 +131,7 @@ BLESSING TECHNOLOGIES/
 │   ├── favicon.svg                   # Custom tech SVG brand favicon
 │   ├── blessing-technologies-cv.html # Print-ready standalone CV document
 │   └── images/                       # Optimized project & profile photography
+│       ├── blessing-technologies-logo.png # Official brand logo
 │       ├── blessing-avatar.jpg
 │       ├── faith-connect.jpg
 │       ├── wellspring-sms.jpg
